@@ -9,7 +9,6 @@
     "lint": "next lint",
     "sanity": "cd studio && sanity start",
     "prepare": "husky install",
-    "prebuild": "echo 'Building Sanity to public/studio' && cd studio && yarn && npx @sanity/cli build ../public/studio -y && echo 'Done'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -31,6 +30,8 @@
     "react-icons": "^4.12.0",
     "react-responsive-carousel": "^3.2.23",
     "sanity": "^3.20.1",
+    "sass": "^1.69.5",
+    "sharp": "^0.32.6",
     "shopify-buy": "^2.21.1",
     "styled-components": "^6.1.1"
   },

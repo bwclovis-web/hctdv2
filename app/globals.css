@@ -5,16 +5,17 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --sage: hsla(65, 25%, 62%, 1);
+    --cadet-gray: hsla(198, 20%, 57%, 1);
+    --english-violet: hsla(270, 29%, 28%, 1);
+    --silver: hsla(28, 16%, 71%, 1);
+    --reseda-green: hsla(95, 13%, 46%, 1);
+    --chinese-violet: hsla(316, 17%, 47%, 1);
 
-  --sage: #B2B685ff;
-  --cadet-gray: #7C9AA7ff;
-  --english-violet: #48335Dff;
-  --silver: #C2B5AAff;
-  --reseda-green: #748667ff;
-  --chinese-violet: #8C6381ff;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: var(--sage);
+  --background-end-rgb: var(--sage);
+  --radius: 5px;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -61,7 +62,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--sage);
+  background-color: var(--background-end-rgb)
 }
 
 body {
@@ -79,8 +80,8 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */

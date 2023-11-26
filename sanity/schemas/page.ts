@@ -16,24 +16,29 @@ const page =  {
     },
   },
   {
+    name: 'pageHero',
+    title: 'Page Hero',
+    type: 'hero',
+  },
+  {
     name: 'heading',
     title: 'First Page Heading',
     type: 'string'
   }],
     
-  preview: {
-    select: {
-      title: 'pageTitle',
-      author: 'author.name',
-      media: 'pageHero.heroImage',
-    },
-    prepare(selection: { author: any }) {
-      const { author } = selection
-      return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`,
-      })
-    },
-  },
+  // preview: {
+  //   select: {
+  //     title: 'pageTitle',
+  //     author: 'author.name',
+  //     media: 'pageHero.heroImage',
+  //   },
+  //   prepare(selection: { author: any }) {
+  //     const { author } = selection
+  //     return Object.assign({}, selection, {
+  //       subtitle: author && `by ${author}`,
+  //     })
+  //   },
+  // },
 }
   
 export default page
