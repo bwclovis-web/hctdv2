@@ -2,9 +2,11 @@ import styles from './page.module.css'
 import sanityClient from '@/lib/sanityClient'
 import { sanityHomepageQuery } from '@/queries/SanityQueries'
 import HeroComponent from './ui/molecules/Hero/Hero'
+// import { getHomePageProps } from '@/lib/shopifyGql'
 
 const Home = async () => {
   const contentProps = await sanityClient.fetch(sanityHomepageQuery)
+  // const pageProps = await getHomePageProps()
   const { pageContent } = contentProps
   return (
     <div className={styles.main}>
