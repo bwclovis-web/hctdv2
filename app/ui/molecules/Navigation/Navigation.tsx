@@ -18,7 +18,7 @@ const Navigation = async () => {
       <ul className={styles.mainNav}>
         {navigation.map((item: { slug: { current: string }; _id: Key; pageTitle: string; }) => (
           <li key={item._id}>
-            <Link href={item.slug.current} data-name={item.pageTitle}>
+            <Link href={`/${item.slug.current}`}>
               {item.pageTitle}
             </Link>
           </li>

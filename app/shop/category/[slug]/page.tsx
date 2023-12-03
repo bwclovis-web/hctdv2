@@ -10,7 +10,6 @@ export const generateStaticParams = async () => {
 
 const SingleCategoryPage = async ({ params }: any) => {
   const categories = await getCategories(params)
-  console.log(categories)
   return <div>oh hai</div>
 }
 
