@@ -5,7 +5,14 @@ import navItemSchema from './schemas/navigation/navItem'
 import linkSchema from './schemas/link'
 import siteConfigSchema from './schemas/siteConfig'
 import heroSchema from './schemas/hero'
+import blockContent from './schemas/blockContent'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [ siteConfigSchema, page, navigationSchema, navItemSchema, linkSchema, heroSchema ],
+  types: [ siteConfigSchema, 
+    page, 
+    navigationSchema, 
+    navItemSchema, 
+    linkSchema, 
+    heroSchema, 
+    blockContent ],
 }

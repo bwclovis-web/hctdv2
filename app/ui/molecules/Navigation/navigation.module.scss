@@ -13,6 +13,23 @@
         line-height: 1.1;
         color: white;
         text-shadow: 2px 4px 4px var( --english-violet);
+        max-width: max-content;
+        margin: 0 auto;
+    }
+}
+
+.topNav {
+    // background-color: rgba(0,0,0, 0.6);
+    position: absolute;
+    width: 100%;
+    z-index: 4;
+    color: white;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
     }
 }
 

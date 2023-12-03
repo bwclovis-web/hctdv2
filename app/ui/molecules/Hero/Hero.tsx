@@ -1,7 +1,8 @@
 import Image from "next/image"
 import styles from './herostyles.module.scss'
+import { PortableText } from '@portabletext/react'
 import { HeroImageType } from "./HeroTypes"
-import { chicle } from "../../fonts"
+import { outfit } from "../../fonts"
 
 const HeroComponent = ({ heroImage }: HeroImageType) => (
   <div className={styles.hero}>
@@ -15,8 +16,9 @@ const HeroComponent = ({ heroImage }: HeroImageType) => (
       className={styles.hero}
       blurDataURL={heroImage.heroImage.asset.metadata.lqip}
     />
-    <div className={styles.content}>
-      <p className={chicle.className} >{heroImage.heading}</p>
+    <div className={`${styles.content}  main-container`}>
+      <h1 className={outfit.className} >{heroImage.heading}</h1>
+      <PortableText value={heroImage.description} />
     </div>
   </div>
 )

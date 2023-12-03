@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navigation from './ui/molecules/Navigation/Navigation'
 import { albert } from './ui/fonts'
+import TopBarNavigation from './ui/molecules/Navigation/TopBarNavigation'
+import { CartProvider } from './providers/mainProvider'
 
 
 export const metadata: Metadata = {
@@ -17,9 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={albert.className}>
-        <Navigation />
-        {children}
-        <div id="modal-root"></div>
+        <CartProvider>
+          <TopBarNavigation />
+          <Navigation />
+          {children}
+          <div id="modal-root"></div>
+        </CartProvider>
       </body>
     </html>
   )

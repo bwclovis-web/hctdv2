@@ -33,8 +33,10 @@ const siteConfigSchema = {
     title: 'Social navigation',
     name: 'socialNav',
     description: 'Select menu for social navigation',
-    type: 'reference',
-    to: { type: 'navigation' },
+    type: 'array',
+    of: [{
+      type: 'navigationItem',
+    },]
   },],
 }
 

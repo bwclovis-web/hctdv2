@@ -1,0 +1,41 @@
+.cartLink {
+    background-color: var(--chinese-violet);
+    border-radius: 50%;
+    padding: .6rem;
+    position: relative;
+}
+
+.cartLinkFull {
+    background-color: var(--green);
+
+    svg {
+        fill: var(--ice-cold);
+    }
+
+
+    &:after {
+        content: attr(data-count);
+        font-weight: 700;
+        position: absolute;
+        display: block;
+        width: 100%;
+        top:0;
+        left: 0;
+        height: 100%;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 1.8rem;
+        text-shadow: 2px 4px 4px var( --english-violet);
+        background-color: rgba(0,0,0,0.3);
+        backdrop-filter: blur(1px);
+        opacity: 0;
+    }
+
+    &:hover {
+        &::after {
+            opacity: 1;
+            transition: all .2s ease-in-out;
+        }
+    }
+    
+}

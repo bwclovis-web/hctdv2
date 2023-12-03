@@ -13,6 +13,11 @@ const heroSchema = {
     type: 'string',
   },
   {
+    name: 'description',
+    title: 'Hero Content',
+    type: 'blockContent'
+  },
+  {
     name: 'heroImage',
     title: 'Hero Image',
     type: 'image',

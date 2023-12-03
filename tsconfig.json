@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "sanity/schemas/navigationLink.js", "lib/shopifyGql.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "sanity/schemas/navigationLink.js", "lib/shopifyGql.js", "app/providers/mainProvider.jsx"],
   "exclude": ["node_modules"]
 }

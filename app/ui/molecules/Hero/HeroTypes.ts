@@ -1,6 +1,7 @@
 export type HeroImageType = {
     heroImage: {
         heading: string
+        description: []
         heroImage: {
             asset: {
                 url: string

@@ -13,6 +13,7 @@ export const sanityHomepageQuery = `{
     pageHero {
       heading,
       eyebrow,
+      description,
       heroImage {
         asset-> {
           url,
