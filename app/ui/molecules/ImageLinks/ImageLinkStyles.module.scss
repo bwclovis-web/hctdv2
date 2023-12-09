@@ -17,13 +17,13 @@
         transition: all 1s cubic-bezier(0.39, 0.575, 0.565, 1);
     }
 
-    span {
+    div {
         position: absolute;
         font-size: 1rem;
         box-shadow: 4px 2px 10px rgba(0,0,0,0.7);
         border-bottom: 2px solid var(--english-violet);
         transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
-        top: 40%;
+        top: 36%;
         background-color: rgba(255, 255,255, 0.6);
         max-height: max-content;
         width: 100%;
@@ -33,6 +33,18 @@
         font-weight: 700;
         letter-spacing: .2rem;
         backdrop-filter: blur(3px);
+
+        span {
+            display: inline-block;
+            width: 100%;
+            
+            &:not(:only-of-type):last-of-type {
+                font-size: .7rem;
+                letter-spacing: .1rem;
+                display: inline-block;
+                padding-top: .4rem;
+            }
+        }
     }
 
     &:hover,
@@ -44,7 +56,7 @@
             transform: scale(125%);
         }
 
-        span {
+        div {
             border-top: 2px solid var(--english-violet);
             background-color: rgba(0, 0,0, 0.6);
             color: var(--ice-cold);

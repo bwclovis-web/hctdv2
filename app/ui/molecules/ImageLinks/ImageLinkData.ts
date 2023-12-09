@@ -3,6 +3,14 @@ export type ImageLinkType = {
     data: {
         title: string
         handle: string
+        priceRange?: {
+            maxVariantPrice: {
+                amount: string
+            }
+            minVariantPrice: {
+                amount: string
+            }
+        }
         image: {
             url: string
         }
