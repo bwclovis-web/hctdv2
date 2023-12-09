@@ -24,3 +24,19 @@ export const sanityHomepageQuery = `{
   },
 }
 `
+export const sanityAboutPageQuery = `{
+  "pageContent": *[_type == "page" && pageTitle== 'about']{
+    pageHero {
+      heading,
+      eyebrow,
+      description,
+      heroImage {
+        asset-> {
+          url,
+          metadata
+        }
+      }
+    }
+  },
+}
+`

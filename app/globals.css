@@ -95,6 +95,16 @@ h1,
   margin: 0 auto;
 }
 
+.catList {
+  list-style: none;
+  display: flex;
+  font-size: 1.2rem;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: max-content;
+  margin: 0 auto;
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

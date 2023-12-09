@@ -155,117 +155,37 @@ export const homePageQuery = `{
 }`
 
 export const shopPageQuery = `{
-  dyeProducts: products(sortKey:UPDATED_AT, query:"product_type:reactive dye", first:4, reverse: true) {
-      edges {
-        node {
-          title
-          handle
-          availableForSale
-          priceRange {
-            maxVariantPrice {
-              amount
-            }
-            minVariantPrice {
-              amount
-            }
+  collections(first: 60) {
+    edges {
+      collection:node {
+        id
+        handle
+        title
+        image {
+          url
+        }
+        products(first: 4) {
+          edges {
+            product:node {
+              title
+              handle
+              availableForSale
+        priceRange {
+          maxVariantPrice {
+            amount
           }
-          featuredImage {
-            url
+          minVariantPrice {
+            amount
+          }
+        }
+        image:featuredImage {
+          url
+        }
+            }
           }
         }
       }
     }
-    tops:products(sortKey:UPDATED_AT, query:"product_type:tops", first:4) {
-      edges {
-        node {
-          title
-          handle
-          availableForSale
-          priceRange {
-            maxVariantPrice {
-              amount
-            }
-            minVariantPrice {
-              amount
-            }
-          }
-          featuredImage {
-            url
-          }
-        }
-      }
-    },
-    bottoms:products(sortKey:UPDATED_AT, query:"product_type:bottoms", first:4) {
-      edges {
-        node {
-          title
-          handle
-          availableForSale
-          priceRange {
-            maxVariantPrice {
-              amount
-            }
-            minVariantPrice {
-              amount
-            }
-          }
-          featuredImage {
-            url
-          }
-        }
-      }
-    }
-    outerwear:products(sortKey:UPDATED_AT, query:"product_type:outerwear", first:4) {
-      edges {
-        node {
-          title
-          handle
-          availableForSale
-          priceRange {
-            maxVariantPrice {
-              amount
-            }
-            minVariantPrice {
-              amount
-            }
-          }
-          featuredImage {
-            url
-          }
-        }
-      }
-    }
-    accessories:products(sortKey:UPDATED_AT, query:"product_type:accessories", first:4) {
-      edges {
-        node {
-          title
-          handle
-          availableForSale
-          priceRange {
-            maxVariantPrice {
-              amount
-            }
-            minVariantPrice {
-              amount
-            }
-          }
-          featuredImage {
-            url
-          }
-        }
-      }
-    }
-    collections(first: 60) {
-      edges {
-        node {
-          id
-          handle
-          title
-          image {
-            url
-          }
-        }
-      }
   }
 }`
 

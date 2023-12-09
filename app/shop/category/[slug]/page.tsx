@@ -9,13 +9,24 @@ export const generateStaticParams = async () => {
 }
 
 const SingleCategoryPage = async ({ params }: any) => {
-  const categories = await getCategories(params)
-  return <div>oh hai</div>
+  const category = await getCategory(params)
+  const { edges } = category.products
+
+  return (
+    <section>
+      <div className="main-container">
+        <h1>{category.title}</h1>
+        {edges.map(item => {
+          console.log('item', item)
+        })}
+      </div>
+    </section>
+  )
 }
 
 
 
-const getCategories = async (params: { slug: string }) => {
+const getCategory = async (params: { slug: string }) => {
   const productsByCollection = await getProductByCollection(params.slug)
 
   return productsByCollection
