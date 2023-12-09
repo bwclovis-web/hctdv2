@@ -15,7 +15,7 @@ const ImageLinkComponent = ({ data, type }: ImageLinkType) => (
       width={240}
       alt=""
       height={240}
-      src={data.image.url}
+      src={data?.image?.url ? data.image.url : data.featuredImage.url}
     />
     <div>
       <span>{data.title}</span>

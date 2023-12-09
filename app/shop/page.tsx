@@ -7,12 +7,12 @@ import styles from './shopPageStyles.module.scss'
 const MainShopPage = async () => {
   const contentProps = await getShopPageProps()
 
-  const ProductRow = ({ products, currentItem }: ProductType) => (
+  const ProductRow = ({ data, currentItem }: ProductType) => (
     <div className={styles.listContainer}>
       <ul className="catList">
-        {products.map(item => <ImageLinkComponent key={item.product.handle} data={item.product} type={""} />)}
+        {data.map(item => <ImageLinkComponent key={item.product.handle} data={item.product} type={""} />)}
       </ul>
-      {products.length >= 4 && <Link href={`shop/category/${currentItem}`} className={styles.ctaLink}>{`shop more ${currentItem}`}</Link>}
+      {data.length >= 4 && <Link href={`shop/category/${currentItem}`} className={styles.ctaLink}>{`shop more ${currentItem}`}</Link>}
     </div>
   )
 
@@ -25,7 +25,7 @@ const MainShopPage = async () => {
           <div className="main-container">
             <h2>{item.collection.title}</h2>
             {item.collection.descriptionHtml && <div dangerouslySetInnerHTML={{ __html: item.collection.descriptionHtml }} />}
-            <ProductRow products={edges} currentItem={item.collection.handle} />
+            <ProductRow data={edges} currentItem={item.collection.handle} />
           </div>) : null
       })}
     </section>

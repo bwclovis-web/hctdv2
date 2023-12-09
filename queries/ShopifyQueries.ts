@@ -80,11 +80,21 @@ export const productByCollection = (handle: any) => `{
     title
     products(first: 60, reverse: true) {
       edges {
-        node {
+        product:node {
           availableForSale
           handle
           tags
           title
+          priceRange {
+            maxVariantPrice {
+              amount
+              currencyCode
+            }
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
           featuredImage {
             url
           }
