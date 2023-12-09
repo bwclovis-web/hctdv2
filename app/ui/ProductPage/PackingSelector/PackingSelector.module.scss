@@ -1,0 +1,45 @@
+.packingDetails {
+    cursor: pointer;
+    margin-top: 1rem;
+    
+    div {
+        display: flex;
+        padding:.5rem 0;
+    }
+}
+
+.packingWrapper {
+    border-top: 2px solid var(--chinese-violet);
+    
+    fieldset {
+        margin-top: 1rem;
+    }
+
+    legend,
+    summary {
+        font-size: 1.3rem;
+    }
+
+    legend {
+        margin-bottom: 1rem;
+    }
+}
+
+.price {
+    display: flex;
+    margin-top: 1rem;
+    max-width: fit-content;
+
+    span {
+        align-self: flex-start;
+
+        &:first-of-type {
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--chinese-violet);
+        }
+
+        &:last-of-type {
+            margin-left: .5rem;
+        }
+    }
+}

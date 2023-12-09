@@ -5,25 +5,36 @@
         background-color: var(--ice-cold);
         position: relative;
      }
-}
 
-.content {
-    position: absolute;
-    text-align: center;
-    z-index: 2;
-    box-shadow: 0px -6px 6px 0px rgba(0,0,0,.6);
-    background-color: var(--ice-cold);
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
-    width: 100%;
-    padding: 2rem;
-    height: max-content;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    p {
-        font-size: 1.8rem;
-        color: var(--disco);
+     .content {
+        position: absolute;
+        text-align: center;
+        z-index: 2;
+        box-shadow: 0px -6px 6px 0px rgba(0,0,0,.6);
+        background-color: var(--ice-cold);
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+        width: 100%;
+        padding: 2rem;
+        height: max-content;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    
+        p {
+            font-size: 1.8rem;
+            color: var(--disco);
+        }
     }
 }
+
+.productHero {
+    height: 60vh;
+    position: absolute;
+    top: 0;
+}
+
+.productHeroImage {
+    width: 100vw;
+}
+

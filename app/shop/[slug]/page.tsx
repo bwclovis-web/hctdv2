@@ -1,4 +1,7 @@
+import ProductHeroComponent from "@/app/ui/molecules/Hero/ProductHero"
 import { getAllProductsQuery, getSingleProductPageProps } from "@/lib/shopifyGql"
+import styles from './SingleProductPage.module.scss'
+import PackingSelectorComponent from "@/app/ui/ProductPage/PackingSelector/PackingSelector"
 
 export const generateStaticParams = async () => {
   const allProducts = await getAllProductsQuery()
@@ -8,8 +11,18 @@ export const generateStaticParams = async () => {
 }
 const SingleProductPage = async ({ params }) => {
   const product = await getSingleProductPageProps(params.slug)
-  console.log('product', product)
-  return <p> GHHHh</p>
+  const { variants } = product
+  const variant = variants.edges
+
+  return <>
+    <ProductHeroComponent heroImage={product} />
+    <section className={`${styles.singlePage} main-container`}>
+      <div>
+        <h1>{product.title}</h1>
+        <PackingSelectorComponent data={variant} />
+      </div>
+    </section>
+  </>
 }
 
 export default SingleProductPage

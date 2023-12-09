@@ -82,7 +82,8 @@ a {
 }
 
 h1, .h1,
-h2, .h2 {
+h2, .h2,
+h3, .h3 {
   font-weight: 800;
   color: var(--disco);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
@@ -95,6 +96,11 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 3rem;
+  line-height: 1.2;
+}
+
+h3, .h3 {
+  font-size: 2.5rem;
   line-height: 1.2;
 }
 
@@ -115,6 +121,18 @@ h2, .h2 {
   padding: 2rem 0;
   min-width: fit-content;
   flex-wrap: wrap;
+}
+fieldset {
+  border: 0;
+}
+
+.sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
 }
 
 /* @media (prefers-color-scheme: dark) {

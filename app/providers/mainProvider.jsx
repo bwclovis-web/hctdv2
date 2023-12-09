@@ -7,7 +7,7 @@ const ctxDefaults = {
   addVariantToCart: (id, amount) => { },
   removeLineItem: () => { },
   updateLineItem: () => { },
-  setCartDisplayPrice: () => { },
+  setCartDisplayPrice: (ard0, arg1) => { },
   loading: false,
   cartDisplayPrice: '',
   numItemsInCart: 0,
