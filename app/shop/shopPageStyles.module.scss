@@ -1,3 +1,16 @@
 .shopPage {
     margin-top: 400px;
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+}
+
+.listContainer {
+    position: relative;
+}
+
+.ctaLink {
+    position: absolute;
+    right: 0;
 }

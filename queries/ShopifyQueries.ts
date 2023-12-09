@@ -161,6 +161,7 @@ export const shopPageQuery = `{
         id
         handle
         title
+        descriptionHtml
         image {
           url
         }

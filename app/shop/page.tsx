@@ -1,14 +1,21 @@
 import { getShopPageProps } from "@/lib/shopifyGql"
 import ImageLinkComponent from "../ui/molecules/ImageLinks/ImageLinks"
+import { ProductType } from "@/lib/types"
+import Link from "next/link"
+import styles from './shopPageStyles.module.scss'
 
 const MainShopPage = async () => {
   const contentProps = await getShopPageProps()
 
-  const ProductRow = ({ products }) => (
-    <ul className="catList">
-      {products.map(item => <ImageLinkComponent key={item.product.handle} data={item.product} type={""} />)}
-    </ul>
+  const ProductRow = ({ products, currentItem }: ProductType) => (
+    <div className={styles.listContainer}>
+      <ul className="catList">
+        {products.map(item => <ImageLinkComponent key={item.product.handle} data={item.product} type={""} />)}
+      </ul>
+      {products.length >= 4 && <Link href={`shop/category/${currentItem}`} className={styles.ctaLink}>{`shop more ${currentItem}`}</Link>}
+    </div>
   )
+
 
   return (
     <section>
@@ -17,7 +24,8 @@ const MainShopPage = async () => {
         return edges.length ? (
           <div className="main-container">
             <h2>{item.collection.title}</h2>
-            <ProductRow products={edges} />
+            {item.collection.descriptionHtml && <div dangerouslySetInnerHTML={{ __html: item.collection.descriptionHtml }} />}
+            <ProductRow products={edges} currentItem={item.collection.handle} />
           </div>) : null
       })}
     </section>
