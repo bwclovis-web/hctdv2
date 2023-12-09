@@ -1,15 +1,11 @@
-import { useEffect, memo, ChangeEvent } from "react"
+import { memo, ChangeEvent, SetStateAction } from "react"
 import styles from './RadioButtons.module.scss'
+import { RadioButtonType } from "./RadioButtonData"
 
-const RadioButtons = ({ data, changeAction }) => {
+const RadioButtons = ({ data, changeAction }: RadioButtonType) => {
   const handleVariationChange = (evt: ChangeEvent<HTMLInputElement>, available: any) => {
-    !available ? evt.preventDefault() : changeAction(evt.target.value)
+    !available ? evt.preventDefault() : changeAction(evt.target.value as SetStateAction<string>)
   }
-  useEffect(() => {
-    const inputs = document.querySelectorAll('.radio-buttons')
-    const firstRadio = inputs[0]?.firstChild as HTMLInputElement
-    firstRadio && firstRadio.setAttribute('checked', 'true')
-  }, [])
 
   return (
     <div className={styles.radioButton}>
@@ -22,7 +18,7 @@ const RadioButtons = ({ data, changeAction }) => {
         onChange={evt => handleVariationChange(evt, data.availableForSale)}
       />
       <label htmlFor={data.id}>
-        <span>{data.selectedOptions[0].value}</span>
+        <span>{data?.selectedOptions[0]?.value}</span>
         {!data.availableForSale && <span className="sr-only">currently unavailable</span>}
       </label>
     </div>

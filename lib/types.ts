@@ -26,3 +26,9 @@ export type SingleCollectionType = {
         handle: string | undefined 
     } 
 }
+
+export type DynamicPageType = {
+    params: {
+        slug: string
+    }
+}

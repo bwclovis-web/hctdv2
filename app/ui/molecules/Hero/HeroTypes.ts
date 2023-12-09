@@ -10,5 +10,8 @@ export type HeroImageType = {
                 }
             }
         }
+        featuredImage:{
+            url: string
+        }
     }
 }

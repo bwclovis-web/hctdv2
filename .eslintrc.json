@@ -8,14 +8,6 @@
       "error",
       "never"
     ],
-    "array-bracket-spacing": [
-      "error",
-      "always",
-      {
-        "singleValue": false,
-        "objectsInArrays": false
-      }
-    ],
     "arrow-parens": [
       "error",
       "as-needed"

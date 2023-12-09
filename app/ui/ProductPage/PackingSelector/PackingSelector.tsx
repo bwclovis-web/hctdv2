@@ -1,23 +1,24 @@
 "use client"
 
-import { ChangeEvent, Key, useContext, useEffect, useState } from "react"
+import { ChangeEvent, Key, SetStateAction, useContext, useEffect, useState } from "react"
 import RadioButtons from "../../Atoms/RadioButtons"
 import styles from './PackingSelector.module.scss'
 import funkyStyles from '../../Atoms/RadioButtons.module.scss'
 import ShopContext from "@/app/providers/mainProvider"
 import { getPriceByVariantId } from "@/lib/utils/formatPrice"
+import { PackingSelectorType } from "./PackingSelectorData"
 
-const PackingSelectorComponent = ({ data }) => {
+const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
   const [packingSelected, setPackingSelected] = useState('')
-  const [variationId, setVariationId] = useState()
-  const [jars, bags] = data?.reduce((res: { [x: string]: any[] }, ele: { node: { selectedOptions: { value: string }[] } }) => {
+  const [variationId, setVariationId] = useState('')
+  const [jars, bags] = data?.reduce((res, ele) => {
     const variation = ele.node.selectedOptions[0].value.toLowerCase()
-    res[variation.includes('jar') ? 0 : 1].push(ele)
+    res[variation.includes('jar') ? 0 : 1].push(ele as never)
 
     return res
   }, [[], []])
 
-  const { setCartDisplayPrice, cartDisplayPrice } = useContext(ShopContext)
+  const { setCartDisplayPrice } = useContext(ShopContext)
 
   useEffect(() => {
     variationId && setCartDisplayPrice(getPriceByVariantId(data, variationId))
