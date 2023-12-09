@@ -2,7 +2,6 @@ import ProductRow from "@/app/ui/molecules/ProductRow/ProductRow"
 import { getAllCollectionsQuery, getProductByCollection } from "@/lib/shopifyGql"
 export const dynamicParams = false
 
-
 export const generateStaticParams = async () => {
   const allCollections = await getAllCollectionsQuery()
   return allCollections.map((item: { node: { handle: any } }) => ({
@@ -18,7 +17,7 @@ const SingleCategoryPage = async ({ params }: any) => {
     <section>
       <div className="main-container">
         <h1>{category.title}</h1>
-        <ProductRow data={edges} />
+        <ProductRow data={edges} type="/shop" />
       </div>
     </section>
   )

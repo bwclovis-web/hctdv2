@@ -13,7 +13,7 @@ const MainShopPage = async () => {
           <div className="main-container">
             <h2>{item.collection.title}</h2>
             {item.collection.descriptionHtml && <div dangerouslySetInnerHTML={{ __html: item.collection.descriptionHtml }} />}
-            <ProductRow data={edges} currentItem={item.collection.handle} />
+            <ProductRow data={edges} currentItem={item.collection.handle} type="shop" />
           </div>) : null
       })}
     </section>

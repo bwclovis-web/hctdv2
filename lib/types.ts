@@ -1,5 +1,6 @@
 export type ProductType = {
     currentItem?: string
+    type: string
     data: [
         {
             product: {
