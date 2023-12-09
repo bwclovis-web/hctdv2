@@ -9,6 +9,17 @@ const formatPriceRange = (data: { maxVariantPrice: any; minVariantPrice: any }) 
   return <span>{formatPrice(maxVariantPrice.amount, "USD")} - {formatPrice(minVariantPrice.amount, "USD")}</span>
 }
 
+const setImageUrl = (data: { featuredImage: { url: any }; image: { url: any } }) => {
+  let url
+  if (data.featuredImage.url) {
+    url = data.featuredImage.url
+  } else {
+    url = data.image.url
+  }
+
+  return url
+}
+
 const ImageLinkComponent = ({ data, type }: ImageLinkType) => (
   <Link href={`${type}/${data.handle}`} className={styles.imageLink}>
     <Image

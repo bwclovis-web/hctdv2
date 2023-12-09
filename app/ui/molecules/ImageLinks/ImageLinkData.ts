@@ -11,6 +11,9 @@ export type ImageLinkType = {
                 amount: string
             }
         }
+        featuredImage: {
+            url: string
+        }
         image: {
             url: string
         }
