@@ -1,6 +1,11 @@
 import { getShopPageProps } from "@/lib/shopifyGql"
 import ProductRow from "../ui/molecules/ProductRow/ProductRow"
 import { SingleCollectionType } from "@/lib/types"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Shop Page'
+}
 
 const MainShopPage = async () => {
   const contentProps = await getShopPageProps()

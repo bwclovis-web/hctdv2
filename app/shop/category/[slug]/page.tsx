@@ -1,5 +1,6 @@
 import ProductRow from "@/app/ui/molecules/ProductRow/ProductRow"
 import { getAllCollectionsQuery, getProductByCollection } from "@/lib/shopifyGql"
+import { Metadata } from "next"
 export const dynamicParams = false
 
 export const generateStaticParams = async () => {
@@ -9,6 +10,18 @@ export const generateStaticParams = async () => {
   }))
 }
 
+const getCategory = async (params: { slug: string }) => {
+  const productsByCollection = await getProductByCollection(params.slug)
+
+  return productsByCollection
+}
+
+export const generateMetadata = async (params: { params: { slug: string } }): Promise<Metadata> => {
+  const category = await getCategory(params.params)
+  return {
+    title: category.title
+  }
+}
 const SingleCategoryPage = async ({ params }: any) => {
   const category = await getCategory(params)
   const { edges } = category.products
@@ -23,12 +36,6 @@ const SingleCategoryPage = async ({ params }: any) => {
   )
 }
 
-
-
-const getCategory = async (params: { slug: string }) => {
-  const productsByCollection = await getProductByCollection(params.slug)
-
-  return productsByCollection
-}
-
 export default SingleCategoryPage
+
+
