@@ -20,18 +20,22 @@
 
 .topNav {
     // background-color: rgba(0,0,0, 0.6);
-    position: absolute;
     top: 0;
     position: sticky;
     width: 100%;
     z-index: 4;
+    display: flex;
     color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
 
     ul {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         padding: 1rem;
+        list-style: none;
+        gap: .8rem;
     }
 }
 
