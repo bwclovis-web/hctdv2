@@ -9,12 +9,16 @@
     .homeLink {
         display: flex;
         flex-direction: column;
-        font-size: 6rem;
+        font-size: 5rem;
         line-height: 1.1;
         color: white;
         text-shadow: 2px 4px 4px var( --english-violet);
         max-width: max-content;
         margin: 0 auto;
+
+        @media (min-width: 1024px) {
+            font-size: 10rem;
+        }
     }
 }
 
@@ -36,6 +40,7 @@
         padding: 1rem;
         list-style: none;
         gap: .8rem;
+        
     }
 }
 
@@ -58,8 +63,13 @@
     li {
         list-style: none;
 		display: inline-block;
-        padding: 16px;
+        padding: .5rem;
         text-transform: uppercase;
+
+        @media (min-width: 1024px) {
+            padding: 16px;
+        }
+    
         
         a {
             color: white;
