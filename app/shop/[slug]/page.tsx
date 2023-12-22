@@ -4,6 +4,7 @@ import styles from './SingleProductPage.module.scss'
 import PackingSelectorComponent from "@/app/ui/ProductPage/PackingSelector/PackingSelector"
 import { DynamicPageType } from "@/lib/types"
 import { Metadata } from "next"
+import AddToCartButton from "@/app/ui/molecules/AddToCartButton/AddToCartButton"
 
 export const generateStaticParams = async () => {
   const allProducts = await getAllProductsQuery()
@@ -30,6 +31,7 @@ const SingleProductPage = async ({ params }: DynamicPageType) => {
       <div>
         <h1>{product.title}</h1>
         <PackingSelectorComponent data={variant} />
+        <AddToCartButton />
       </div>
     </section>
   </>

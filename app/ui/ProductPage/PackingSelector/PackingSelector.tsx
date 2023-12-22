@@ -20,13 +20,14 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
 
   const { setCartDisplayPrice } = useContext(ShopContext)
 
-  useEffect(() => {
-    variationId && setCartDisplayPrice(getPriceByVariantId(data, variationId))
-  }, [setCartDisplayPrice, variationId, data])
-
   const handlePackingChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setPackingSelected(evt.target.value)
     setCartDisplayPrice('')
+  }
+
+  const handleSizeSelect = (variationId: SetStateAction<string>) => {
+    setVariationId(variationId)
+    setCartDisplayPrice(getPriceByVariantId(data, variationId))
   }
 
   return (
@@ -48,10 +49,10 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
         <summary>Choose your item size</summary>
         <div>
           {packingSelected === 'bags' &&
-            bags.map((item: { node: any }, i: Key | null | undefined) => <RadioButtons data={item.node} key={i} changeAction={setVariationId} />)
+            bags.map((item: { node: any }, i: Key | null | undefined) => <RadioButtons data={item.node} key={i} changeAction={handleSizeSelect} />)
           }
           {packingSelected === 'jars' &&
-            jars.map((item: { node: any }, i: Key | null | undefined) => <RadioButtons data={item.node} key={i} changeAction={setVariationId} />)
+            jars.map((item: { node: any }, i: Key | null | undefined) => <RadioButtons data={item.node} key={i} changeAction={handleSizeSelect} />)
           }
           {
             packingSelected === '' && <p>Oops, looks like you forgot to pick an option. Please select from the list above.</p>
