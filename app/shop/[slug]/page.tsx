@@ -31,7 +31,9 @@ const SingleProductPage = async ({ params }: DynamicPageType) => {
       <div>
         <h1>{product.title}</h1>
         <PackingSelectorComponent data={variant} />
-        <AddToCartButton />
+        <div className={styles.cartButton}>
+          <AddToCartButton />
+        </div>
       </div>
     </section>
   </>

@@ -1,6 +1,6 @@
 "use client"
 
-import { ChangeEvent, Key, SetStateAction, useContext, useEffect, useState } from "react"
+import { ChangeEvent, Key, SetStateAction, useContext, useState } from "react"
 import RadioButtons from "../../Atoms/RadioButtons"
 import styles from './PackingSelector.module.scss'
 import funkyStyles from '../../Atoms/RadioButtons.module.scss'
@@ -10,6 +10,7 @@ import { PackingSelectorType } from "./PackingSelectorData"
 
 const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
   const [packingSelected, setPackingSelected] = useState('')
+  const [showSize, setShowSize] = useState(false)
   const [variationId, setVariationId] = useState('')
   const [jars, bags] = data?.reduce((res, ele) => {
     const variation = ele.node.selectedOptions[0].value.toLowerCase()
@@ -21,6 +22,7 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
   const { setCartDisplayPrice } = useContext(ShopContext)
 
   const handlePackingChange = (evt: ChangeEvent<HTMLInputElement>) => {
+    setShowSize(true)
     setPackingSelected(evt.target.value)
     setCartDisplayPrice('')
   }
@@ -45,7 +47,7 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
           </div>
         </fieldset>
       }
-      <details className={styles.packingDetails}>
+      <details className={styles.packingDetails} open={showSize}>
         <summary>Choose your item size</summary>
         <div>
           {packingSelected === 'bags' &&
