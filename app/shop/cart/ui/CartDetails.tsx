@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, MouseEvent } from 'react'
 import { formatPrice } from '@/lib/utils/formatPrice'
-import styles from '../cartPage.module.scss'
+import styles from './cartPagePartials.module.scss'
 import clsx from 'clsx'
 import { CartDetailProps } from './CartDetailTypes'
 
@@ -16,10 +16,6 @@ const CartDetails = ({ data }: CartDetailProps) => {
       setError('')
     }
   }, [checked, error])
-
-  if (!data.subtotalPriceV2) {
-    return <p>OHHAI</p>
-  }
 
   const handleCheckout = (evt: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>) => {
     if (!checked) {

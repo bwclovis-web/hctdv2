@@ -39,11 +39,11 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
         <fieldset>
           <legend>First, please select a packing option.</legend>
           <div className={funkyStyles.radioButton}>
-            <input type="radio" id="packingBags" name="packing" value="bags" onChange={evt => { handlePackingChange(evt) }} />
+            <input type="radio" id="packingBags" name="packingBags" value="bags" onChange={evt => { handlePackingChange(evt) }} />
             <label htmlFor="packingBags"><span>BAG</span></label>
           </div>
           <div className={funkyStyles.radioButton}>
-            <input type="radio" id="packingJars" name="packing" value="jars" onChange={evt => { handlePackingChange(evt) }} />
+            <input type="radio" id="packingJars" name="packingJars" value="jars" onChange={evt => { handlePackingChange(evt) }} />
             <label htmlFor="packingJars"><span>JAR</span></label>
           </div>
         </fieldset>

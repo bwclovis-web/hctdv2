@@ -1,24 +1,31 @@
 .shopPageContainer {
-    max-width: var(--max-width);
-    margin: 0 auto;
     display: flex;
-    align-items: center;
     gap: 2rem;
+    flex-direction: column;
 
-    > ul {
-        width: 60%;
+    @media (min-width: 1024px) {
+        flex-direction: row;
+    }
+
+    > div:first-of-type {
+        @media (min-width: 1024px) {
+            width: 60%;
+        }
     }
 }
 
 .cartDetails {
-    align-self: flex-start;
     background-color: var(--disco);
     color: var(--ice-cold);
-    width: 30%;
     padding: 2rem;
     border-radius: calc(var(--radius) * 2);
 
-    p{
+    @media (min-width: 1024px) {
+        align-self: flex-start;
+        width: 30%;
+    }
+
+    p {
         padding-bottom: 1rem;
     }
 
@@ -38,121 +45,6 @@
     }
 }
 
-.termsCheckbox {
-    display: flex;
-    align-items: center;
-
-    + a {
-        margin-top: 1rem;
-        display: block;
-    }
-
-    input {
-        width: 0;
-        height: 0;
-        opacity: 0;
-
-        &:focus {
-            + label span {
-                &:before,
-                &::after {
-                    border: 2px solid var(--chinese-violet);
-                }
-            }
-        }
-
-        + label span {
-            display: inline-block;
-            width:25px;
-            height:20px;
-            margin: 0 5px -4px 0;
-
-            &:before,
-            &::after {
-                content: "";
-                transition: all .3s cubic-bezier(0.47, 0, 0.745, 0.715);
-                position: absolute;
-                cursor: pointer;
-                z-index: 1;
-                width: 20px;
-                height: 20px;
-                background: transparent;
-                border: 2px solid var(--ice-cold);
-                border-radius: var(--radius);
-            }
-
-            &:after {
-                z-index: 0;
-                border: none;
-              }
-        }
-        &:checked + label span {
-            &:before {
-             transform: rotateY(180deg);
-             background: var(--ice-cold);
-           }
-       }
-    }
-}
-
-.checkoutContainer {
-    margin-top: 1rem;
-
-    p {
-        background-color: var(--blush);
-        padding-bottom: 0;
-        padding: .2rem;
-        text-align: center;
-        border-radius: var(--radius);
-    }
-
-    a {
-        margin-top: 2.7rem;
-        display: block;
-        padding: 1.2rem;
-        text-align: center;
-        border-radius: calc(var(--radius) * 2);
-        color: white;
-        border: 2px solid white;
-        transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
-        font-family: var(--fjalla);
-        font-size: 1.5rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: .1rem;
-        background-color: var(--green);
-        transition: opacity .2s ease-in;
-    }
-
-    p + a {
-        margin-top: .5rem;
-    }
-}
-
-.checkoutDisabled {
-    cursor: default;
-    opacity: .5;
-}
-
-.checkoutEnabled {
-    opacity: 1;
-    cursor: pointer;
-    border: 0 solid;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-    outline: 1px solid;
-    outline-color: rgba(255, 255, 255, .9);
-    outline-offset: 0px;
-    text-shadow: none;
-
-    &:hover {
-        box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-        outline-color: rgba(255, 255, 255, 0);
-        outline-offset: 15px;
-        text-shadow: 2px 2px 1px var(--disco);
-        transition: all .2s ease-in-out;
-    }
-}
-
 .shopPageItem {
     display: flex;
     background-color: rgba(255,255,255, .5);
@@ -161,6 +53,11 @@
     justify-content: space-between;
     border: 1px solid var(--cadet-gray);
     margin-bottom: 1rem;
+    flex-direction: column;
+
+    @media (min-width: 1024px) {
+        flex-direction: row;
+    }
 
     > div {
         width: 100%;
@@ -171,14 +68,30 @@
         padding: 1rem;
     }
 
-    > div:not(:first-child) {
+    > div:nth-of-type(2) {
         display: flex;
         flex-direction: column;
     }
 
+    > div:nth-of-type(2) {
+        position: relative;
+
+        & span:last-of-type {
+            position: absolute;
+            bottom: .5rem;
+            right: .5rem;
+            color: var(--chinese-violet);
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+    }
+
     > div:first-child {
-        width: 40%;
         border-right: 1px solid var(--silver);
+
+        @media (min-width: 1024px) {
+            width: 40%;
+        }
     }
 
     input {
@@ -195,13 +108,25 @@
     display: flex;
     gap: .4rem;
     padding: 0;
-    max-width: 10%;
+    width: 100%;
+    justify-content: space-between;
+
+    @media (min-width: 1024px) {
+        flex-direction: column;
+        max-width: 10%;
+    }
 
     button {
-        height: 33%;
+        justify-content: space-around;
         border: 0;
         cursor: pointer;
         transition: all .2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        padding: 1.2rem;
+        width: 100%;
+
+        @media (min-width: 1024px) {
+            height: 33%;
+        }
 
         &:first-of-type {
             border-bottom-left-radius: var(--radius);

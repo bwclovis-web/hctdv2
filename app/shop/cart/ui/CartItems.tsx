@@ -28,18 +28,26 @@ const CartListItems = ({ item, update, deleteItem }: CartItemProps) => {
       </div>
       <div>
         <span className="h3">{item.title}</span>
-        <span>Size: {value}</span>
-        <input type="number" value={item.quantity} ref={inputRef} readOnly />
-        <span>{formatPrice(amount, currencyCode)} ea.</span>
+        {value &&
+          <>
+            <span>Size: {value}</span>
+            <input type="number" value={item.quantity} ref={inputRef} readOnly />
+            <span>{formatPrice(amount, currencyCode)} ea.</span>
+          </>
+        }
         <span>Item total: {formatPrice(amount * item.quantity, currencyCode)}</span>
       </div>
       <div className={styles.shopItemControls}>
-        <button onClick={() => handleClick('inc')} className="btn-green">
-          <FaPlus size={20} />
-        </button>
-        <button onClick={() => handleClick('dec')} className="btn-green">
-          <FaMinus size={20} />
-        </button>
+        {value &&
+          <>
+            <button onClick={() => handleClick('inc')} className="btn-green">
+              <FaPlus size={20} />
+            </button>
+            <button onClick={() => handleClick('dec')} className="btn-green">
+              <FaMinus size={20} />
+            </button>
+          </>
+        }
         <button className="btn-red" onClick={() => deleteItem(item.id)}>
           <FaTimesCircle size={30} />
         </button>

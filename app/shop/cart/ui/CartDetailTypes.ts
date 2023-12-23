@@ -4,7 +4,7 @@ export type CartDetailProps = {
     data: {
         webUrl?: string
         id: string
-        subtotalPriceV2?: {
+        subtotalPriceV2: {
             amount: number
             currencyCode: string
         }

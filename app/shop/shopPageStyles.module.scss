@@ -1,5 +1,9 @@
 .shopPage {
-    margin-top: 400px;
+    margin-top: 200px;
+
+    @media (min-width: 1024px) {
+        margin-top: 400px;
+    }
 
     h2 {
         margin-bottom: 1rem;
