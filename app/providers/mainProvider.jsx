@@ -53,6 +53,7 @@ export const CartProvider = ({ children }) => {
           )
           if (!existingCheckout.completedAt) {
             setCheckoutItem(existingCheckout)
+            setNumItemsInCart(existingCheckout.lineItems.length)
             return
           }
         } catch (e) {
@@ -85,6 +86,7 @@ export const CartProvider = ({ children }) => {
     return await shopClient.checkout
       .addLineItems(checkoutID, lineItemsToUpdate)
       .then(res => {
+        setNumItemsInCart(res.lineItems.length)
         setCheckout(res)
         setLoading(false)
         setDidJustAddToCart(true)

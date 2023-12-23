@@ -12,23 +12,21 @@
         fill: var(--ice-cold);
     }
 
-
     &:after {
         content: attr(data-count);
-        font-weight: 700;
+        text-align: center;
+        padding: .2rem;
+        font-weight: 500;
         position: absolute;
         display: block;
-        width: 100%;
-        top:0;
-        left: 0;
-        height: 100%;
+        width: 30px;
+        top:-.5rem;
+        right: -.5rem;
+        height: 30px;
         border-radius: 50%;
-        text-align: center;
-        font-size: 1.8rem;
-        text-shadow: 2px 4px 4px var( --english-violet);
-        background-color: rgba(0,0,0,0.3);
-        backdrop-filter: blur(1px);
-        opacity: 0;
+        font-size: 1.2rem;
+        background-color: var(--chinese-violet);
+        opacity: 1;
     }
 
     &:hover {
