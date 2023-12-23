@@ -11,7 +11,6 @@ import { PackingSelectorType } from "./PackingSelectorData"
 const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
   const [packingSelected, setPackingSelected] = useState('')
   const [showSize, setShowSize] = useState(false)
-  const [variationId, setVariationId] = useState('')
   const [jars, bags] = data?.reduce((res, ele) => {
     const variation = ele.node.selectedOptions[0].value.toLowerCase()
     res[variation.includes('jar') ? 0 : 1].push(ele as never)
@@ -19,7 +18,7 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
     return res
   }, [[], []])
 
-  const { setCartDisplayPrice } = useContext(ShopContext)
+  const { setCartDisplayPrice, setThisVariantId } = useContext(ShopContext)
 
   const handlePackingChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setShowSize(true)
@@ -28,7 +27,7 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
   }
 
   const handleSizeSelect = (variationId: SetStateAction<string>) => {
-    setVariationId(variationId)
+    setThisVariantId(variationId)
     setCartDisplayPrice(getPriceByVariantId(data, variationId))
   }
 

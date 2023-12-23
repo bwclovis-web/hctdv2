@@ -6,9 +6,11 @@ import { shopClient } from '@/lib/shopifyClient'
 const ctxDefaults = {
   addVariantToCart: (id, amount) => { },
   removeLineItem: () => { },
-  updateLineItem: () => { },
+  updateLineItem: (ard0, arg1, arg2) => { },
   setCartDisplayPrice: (ard0, arg1) => { },
+  setThisVariantId: arg0 => {},
   loading: false,
+  thisVariantId: '',
   cartDisplayPrice: '',
   numItemsInCart: 0,
   shopClient,
@@ -28,8 +30,8 @@ export const CartProvider = ({ children }) => {
   const [ loading, setLoading ] = useState(false)
   const [ didJustAddToCart, setDidJustAddToCart ] = useState(false)
   const [ cartDisplayPrice, setCartDisplayPrice ] = useState('')
+  const [thisVariantId, setThisVariantId] = useState('')
   const [ numItemsInCart, setNumItemsInCart ] = useState(checkout.lineItems.length)
-
 
   const setCheckoutItem = checkout => {
     if (isBrowser) {
@@ -66,12 +68,12 @@ export const CartProvider = ({ children }) => {
     initializeCheckout()
   }, [])
 
-  const addVariantToCart = async (variantId, quantity) => {
+  const addVariantToCart = async variantId => {
     setLoading(true)
     const checkoutID = checkout.id
     const lineItemsToUpdate = [{
       variantId,
-      quantity: parseInt(quantity, 10),
+      quantity: 1,
     }]
 
     window.scrollTo({
@@ -86,9 +88,7 @@ export const CartProvider = ({ children }) => {
         setCheckout(res)
         setLoading(false)
         setDidJustAddToCart(true)
-        // toggleCart()
-        setCartTrigger('add-to-cart')
-        setTimeout(() => setDidJustAddToCart(false), 3000)
+        setThisVariantId('')
       })
   }
 
@@ -127,7 +127,9 @@ export const CartProvider = ({ children }) => {
       didJustAddToCart,
       shopClient,
       cartDisplayPrice,
-      setCartDisplayPrice
+      setCartDisplayPrice,
+      setThisVariantId,
+      thisVariantId
     }}>
       {children}
     </ShopContext.Provider>

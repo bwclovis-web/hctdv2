@@ -1,0 +1,117 @@
+.shopPageContainer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    > ul {
+        width: 60%;
+    }
+}
+
+.cartDetails {
+    align-self: flex-start;
+    background-color: var(--disco);
+    color: var(--ice-cold);
+    width: 30%;
+    padding: 2rem;
+    border-radius: calc(var(--radius) * 2);
+
+    h2 {
+        color: var(--ice-cold);
+        line-height: 1;
+    }
+
+    p:first-of-type {
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        padding-bottom: 1rem;
+    }
+
+    p:last-of-type {
+        font-size: .9rem;
+        padding-bottom: 1rem;
+    }
+}
+
+.termsCheckbox {
+    display: flex;
+    align-items: center;
+
+    input {
+        display: none;
+
+        + label span {
+            display: inline-block;
+            width:25px;
+            height:20px;
+            margin: 0 5px -4px 0;
+
+            &:before,
+            &::after {
+                content: "";
+                transition: all .3s cubic-bezier(0.47, 0, 0.745, 0.715);
+                position: absolute;
+                z-index: 1;
+                width: 20px;
+                height: 20px;
+                background: transparent;
+                border: 2px solid var(--ice-cold);
+                border-radius: var(--radius);
+            }
+
+            &:after {
+                z-index: 0;
+                border: none;
+              }
+        }
+        &:checked + label span {
+            &:before {
+             transform: rotateY(180deg);
+             background: var(--ice-cold);
+           }
+       }
+    }
+
+}
+
+.shopPageItem {
+    display: flex;
+    background-color: rgba(255,255,255, .5);
+    width: 100%;
+    border-radius: var(--radius);
+    padding: 1rem;
+    justify-content: space-between;
+    border: 1px solid var(--cadet-gray);
+    margin-bottom: 1rem;
+
+    > div {
+        width: 100%;
+    }
+
+    > div:not(:last-child) {
+        padding-right: 1rem;
+        margin-right: .8rem;
+        border-right: 2px solid #444;
+    }
+
+    > div:not(:first-child) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    >div:first-child {
+        width: 40%;
+        padding-right: 1rem;
+    }
+
+    > div:last-child {
+        max-width: fit-content;
+    }
+
+    input {
+        margin: 1rem 0;
+    }
+}
