@@ -88,6 +88,7 @@ export const CartProvider = ({ children }) => {
         setCheckout(res)
         setLoading(false)
         setDidJustAddToCart(true)
+        setCartDisplayPrice('')
         setThisVariantId('')
       })
   }

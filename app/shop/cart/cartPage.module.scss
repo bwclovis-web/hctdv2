@@ -18,6 +18,10 @@
     padding: 2rem;
     border-radius: calc(var(--radius) * 2);
 
+    p{
+        padding-bottom: 1rem;
+    }
+
     h2 {
         color: var(--ice-cold);
         line-height: 1;
@@ -27,12 +31,10 @@
         font-size: 1.4rem;
         font-weight: 600;
         letter-spacing: .1rem;
-        padding-bottom: 1rem;
     }
 
     p:last-of-type {
         font-size: .9rem;
-        padding-bottom: 1rem;
     }
 }
 
@@ -40,8 +42,24 @@
     display: flex;
     align-items: center;
 
+    + a {
+        margin-top: 1rem;
+        display: block;
+    }
+
     input {
-        display: none;
+        width: 0;
+        height: 0;
+        opacity: 0;
+
+        &:focus {
+            + label span {
+                &:before,
+                &::after {
+                    border: 2px solid var(--chinese-violet);
+                }
+            }
+        }
 
         + label span {
             display: inline-block;
@@ -54,6 +72,7 @@
                 content: "";
                 transition: all .3s cubic-bezier(0.47, 0, 0.745, 0.715);
                 position: absolute;
+                cursor: pointer;
                 z-index: 1;
                 width: 20px;
                 height: 20px;
@@ -74,7 +93,28 @@
            }
        }
     }
+}
 
+.checkoutContainer {
+    margin-top: 1rem;
+
+    p {
+        background-color: var(--blush);
+        padding-bottom: 0;
+        padding: .2rem;
+        text-align: center;
+        border-radius: var(--radius);
+    }
+
+    a {
+        margin-top: 2.5rem;
+        display: block;
+    }
+
+    p + a {
+        margin-top: .5rem;
+    }
+    
 }
 
 .shopPageItem {

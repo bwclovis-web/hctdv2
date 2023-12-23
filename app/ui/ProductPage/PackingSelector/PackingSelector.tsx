@@ -18,7 +18,7 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
     return res
   }, [[], []])
 
-  const { setCartDisplayPrice, setThisVariantId } = useContext(ShopContext)
+  const { setCartDisplayPrice, setThisVariantId, } = useContext(ShopContext)
 
   const handlePackingChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setShowSize(true)
@@ -30,6 +30,8 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
     setThisVariantId(variationId)
     setCartDisplayPrice(getPriceByVariantId(data, variationId))
   }
+
+
 
   return (
     <div className={styles.packingWrapper}>

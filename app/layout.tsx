@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
-import './globals.css'
 import Navigation from './ui/molecules/Navigation/Navigation'
 import { albert } from './ui/fonts'
 import TopBarNavigation from './ui/molecules/Navigation/TopBarNavigation'
 import { CartProvider } from './providers/mainProvider'
-
+import './globals.css'
 
 export const metadata: Metadata = {
   title: {
