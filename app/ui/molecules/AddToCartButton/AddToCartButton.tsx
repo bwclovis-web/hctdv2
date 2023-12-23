@@ -12,13 +12,13 @@ const AddToCartButton = () => {
     [styles.disabled]: !cartDisplayPrice
   })
 
-  const handleAddToCart = evt => {
+  const handleAddToCart = () => {
     addVariantToCart(thisVariantId)
   }
   return <button
     className={ButtonClasses}
     disabled={!cartDisplayPrice}
-    onClick={evt => handleAddToCart(evt)}
+    onClick={evt => handleAddToCart()}
   >
     Add To Cart {cartDisplayPrice}
   </button>

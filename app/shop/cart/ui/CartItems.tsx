@@ -1,8 +1,9 @@
 import Image from "next/image"
 import styles from "../cartPage.module.scss"
 import { formatPrice } from "@/lib/utils/formatPrice"
+import { CartItemProps } from "./CartDetailTypes"
 
-const CartListItems = ({ item, update }) => {
+const CartListItems = ({ item, update }: CartItemProps) => {
   const { attrs, image } = item.variant
   const { value } = attrs.selectedOptions[0]
   const { amount, currencyCode } = attrs.priceV2

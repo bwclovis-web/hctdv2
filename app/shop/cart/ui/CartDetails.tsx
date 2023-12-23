@@ -4,8 +4,9 @@ import { useState, useRef, useEffect, MouseEvent } from 'react'
 import { formatPrice } from '@/lib/utils/formatPrice'
 import styles from '../cartPage.module.scss'
 import clsx from 'clsx'
+import { CartDetailProps } from './CartDetailTypes'
 
-const CartDetails = ({ data }) => {
+const CartDetails = ({ data }: CartDetailProps) => {
   const [checked, setChecked] = useState(false)
   const [error, setError] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
