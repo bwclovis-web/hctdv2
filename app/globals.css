@@ -136,6 +136,27 @@ fieldset {
   overflow:hidden;
 }
 
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+
+.btn-green {
+  background-color: var(--green);
+  color: white;
+}
+
+.btn-red {
+  background-color: var(--blush);
+  color: white;
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

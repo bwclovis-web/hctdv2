@@ -12,7 +12,7 @@ export type CartDetailProps = {
 }
 
 export type CartItemProps = {
-    update: (arg0?:ChangeEvent<HTMLInputElement>, arg1?: string) => {},
+    update: (arg0?:string, arg1?: string) => {},
     item: {
         title: string
         variant: {

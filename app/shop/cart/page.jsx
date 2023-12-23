@@ -7,16 +7,19 @@ import styles from './cartPage.module.scss'
 import CartDetails from "./ui/CartDetails"
 
 const CartPage = () => {
-  const { checkout, updateLineItem } = useContext(ShopContext)
-  const updateLineItems = (evt, id) => {
-    updateLineItem(checkout.id, id, evt.target.value)
+  const { checkout, updateLineItem, removeLineItem } = useContext(ShopContext)
+  const updateLineItems = (amount, id) => {
+    updateLineItem(checkout.id, id, amount)
+  }
+  const removeItemFromCart = id => {
+    removeLineItem(checkout.id, id)
   }
   return (
     <section >
       <div className={styles.shopPageContainer}>
         <ul>
           {
-            checkout.lineItems.map(lineItem => <CartListItems item={lineItem} update={updateLineItems} key={lineItem.id} />)
+            checkout.lineItems.map(lineItem => <CartListItems item={lineItem} update={updateLineItems} key={lineItem.id} deleteItem={removeItemFromCart} />)
           }
         </ul>
         <div className={styles.cartDetails}>
