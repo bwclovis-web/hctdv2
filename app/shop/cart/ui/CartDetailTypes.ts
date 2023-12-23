@@ -13,6 +13,7 @@ export type CartDetailProps = {
 
 export type CartItemProps = {
     update: (arg0?:string, arg1?: string) => {},
+    deleteItem: (arg0?:string) => {},
     item: {
         title: string
         variant: {
