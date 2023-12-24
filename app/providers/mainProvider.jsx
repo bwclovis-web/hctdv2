@@ -102,6 +102,7 @@ export const CartProvider = ({ children }) => {
       .removeLineItems(checkoutID, [lineItemID])
       .then(res => {
         setCheckout(res)
+        setNumItemsInCart(res.lineItems.length)
         setLoading(false)
       })
   }
@@ -114,6 +115,7 @@ export const CartProvider = ({ children }) => {
       .updateLineItems(checkoutID, lineItemsToUpdate)
       .then(res => {
         setCheckout(res)
+        setNumItemsInCart(res.lineItems.length)
         setLoading(false)
       })
   }
