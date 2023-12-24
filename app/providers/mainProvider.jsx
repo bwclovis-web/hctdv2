@@ -2,6 +2,7 @@
 
 import { useState, useEffect, createContext } from 'react'
 import { shopClient } from '@/lib/shopifyClient'
+import UseToast from '@/hooks/UseToast'
 
 const ctxDefaults = {
   addVariantToCart: (id, amount) => { },
@@ -33,6 +34,7 @@ export const CartProvider = ({ children }) => {
   const [thisVariantId, setThisVariantId] = useState('')
   const [ numItemsInCart, setNumItemsInCart ] = useState(checkout.lineItems.length)
   const [isFetchingCart, setIsFetchingCart] = useState(true)
+  const [showToast, toggleToast] = UseToast()
 
   const setCheckoutItem = checkout => {
     if (isBrowser) {
@@ -74,6 +76,7 @@ export const CartProvider = ({ children }) => {
 
   const addVariantToCart = async variantId => {
     setLoading(true)
+    toggleToast(true)
     const checkoutID = checkout.id
     const lineItemsToUpdate = [{
       variantId,
@@ -93,7 +96,6 @@ export const CartProvider = ({ children }) => {
         setCheckout(res)
         setLoading(false)
         setDidJustAddToCart(true)
-        setCartDisplayPrice('')
         setThisVariantId('')
       })
   }
@@ -138,7 +140,8 @@ export const CartProvider = ({ children }) => {
       setCartDisplayPrice,
       setThisVariantId,
       thisVariantId,
-      isFetchingCart
+      isFetchingCart,
+      showToast
     }}>
       {children}
     </ShopContext.Provider>

@@ -1,10 +1,12 @@
-import ProductHeroComponent from "@/app/ui/molecules/Hero/ProductHero"
-import { getAllProductsQuery, getSingleProductPageProps } from "@/lib/shopifyGql"
-import styles from './SingleProductPage.module.scss'
-import PackingSelectorComponent from "@/app/ui/ProductPage/PackingSelector/PackingSelector"
-import { DynamicPageType } from "@/lib/types"
 import { Metadata } from "next"
+import { getAllProductsQuery, getSingleProductPageProps } from "@/lib/shopifyGql"
+import { DynamicPageType } from "@/lib/types"
+
 import AddToCartButton from "@/app/ui/molecules/AddToCartButton/AddToCartButton"
+import ProductHeroComponent from "@/app/ui/molecules/Hero/ProductHero"
+import PackingSelectorComponent from "@/app/ui/ProductPage/PackingSelector/PackingSelector"
+
+import styles from './SingleProductPage.module.scss'
 
 export const generateStaticParams = async () => {
   const allProducts = await getAllProductsQuery()
@@ -34,7 +36,7 @@ const SingleProductPage = async ({ params }: DynamicPageType) => {
           <>
             <PackingSelectorComponent data={variant} />
             <div className={styles.cartButton}>
-              <AddToCartButton />
+              <AddToCartButton item={product} />
             </div>
           </> :
           <p>Sorry this item is currently out of stock.</p>

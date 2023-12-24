@@ -4,18 +4,25 @@
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+    
 
+    /* COLORS */
     --ice-cold: #B3F1F2;
     --disco: #731C57;
-    --green: #588C68;
     --blush: #BB4E5E;
     --cadet-gray: hsla(198, 20%, 57%, 1);
     --english-violet: hsla(270, 29%, 28%, 1);
     --silver: hsla(28, 16%, 71%, 1);
     --chinese-violet: hsla(316, 17%, 47%, 1);
 
+    /* greens */
+    --green: #66994d;
+    --sinbad: #95D3CA;
+    --fern: #4A793C;
+    
+
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: var(--ice-cold);
+  --background-start-rgb: var(--silver);
   --background-end-rgb: var(--ice-cold);
   --radius: 5px;
 

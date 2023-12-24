@@ -1,0 +1,21 @@
+.toast {
+    background-color: var(--green);
+    position: absolute;
+    bottom: .7rem;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--green)
+      )
+    var(--fern);
+    color: var(--sinbad);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    transform: translateX(100%);
+    transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.toastOpen {
+    transform: translateX(0);
+}
