@@ -32,6 +32,7 @@ export const CartProvider = ({ children }) => {
   const [ cartDisplayPrice, setCartDisplayPrice ] = useState('')
   const [thisVariantId, setThisVariantId] = useState('')
   const [ numItemsInCart, setNumItemsInCart ] = useState(checkout.lineItems.length)
+  const [isFetchingCart, setIsFetchingCart] = useState(true)
 
   const setCheckoutItem = checkout => {
     if (isBrowser) {
@@ -58,6 +59,8 @@ export const CartProvider = ({ children }) => {
           }
         } catch (e) {
           localStorage.setItem(localStorageKey, '')
+        } finally {
+          setIsFetchingCart(false)
         }
       }
 
@@ -134,7 +137,8 @@ export const CartProvider = ({ children }) => {
       cartDisplayPrice,
       setCartDisplayPrice,
       setThisVariantId,
-      thisVariantId
+      thisVariantId,
+      isFetchingCart
     }}>
       {children}
     </ShopContext.Provider>

@@ -8,13 +8,22 @@ import CartDetails from "./ui/CartDetails"
 import EmptyCart from "./ui/EmptyCart"
 
 const CartPage = () => {
-  const { checkout, updateLineItem, removeLineItem } = useContext(ShopContext)
+  const { checkout, updateLineItem, removeLineItem, isFetchingCart } = useContext(ShopContext)
   const { lineItems } = checkout
   const updateLineItems = (amount, id) => {
     updateLineItem(checkout.id, id, amount)
   }
   const removeItemFromCart = id => {
     removeLineItem(checkout.id, id)
+  }
+
+  if (isFetchingCart) {
+    return (
+      <div className="main-container">
+        <h1>Hang tight</h1>
+        <p>Fetching Cart</p>
+      </div>
+    )
   }
 
   if(!lineItems.length) {
