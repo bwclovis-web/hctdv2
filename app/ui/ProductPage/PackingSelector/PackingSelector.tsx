@@ -1,6 +1,6 @@
 "use client"
 
-import { ChangeEvent, Key, SetStateAction, useContext, useState } from "react"
+import { ChangeEvent, Key, SetStateAction, useContext, useEffect, useState } from "react"
 import RadioButtons from "../../Atoms/RadioButtons"
 import styles from './PackingSelector.module.scss'
 import funkyStyles from '../../Atoms/RadioButtons.module.scss'
@@ -18,7 +18,7 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
     return res
   }, [[], []])
 
-  const { setCartDisplayPrice, setThisVariantId, } = useContext(ShopContext)
+  const { setCartDisplayPrice, setThisVariantId } = useContext(ShopContext)
 
   const handlePackingChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setShowSize(true)
@@ -31,7 +31,9 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
     setCartDisplayPrice(getPriceByVariantId(data, variationId))
   }
 
-
+  useEffect(() => {
+    setCartDisplayPrice('')
+  }, [setCartDisplayPrice])
 
   return (
     <div className={styles.packingWrapper}>
