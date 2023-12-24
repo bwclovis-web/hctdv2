@@ -5,6 +5,7 @@ export type ProductType = {
         {
             product: {
                 handle: string
+                availableForSale: boolean
                 title: string
                 image: {
                     url: string;

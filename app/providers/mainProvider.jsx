@@ -11,6 +11,7 @@ const ctxDefaults = {
   setCartDisplayPrice: (ard0, arg1) => { },
   setThisVariantId: arg0 => {},
   loading: false,
+  showToast: false,
   thisVariantId: '',
   cartDisplayPrice: '',
   numItemsInCart: 0,

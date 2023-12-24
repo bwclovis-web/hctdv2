@@ -1,12 +1,14 @@
 "use client"
 
 import { useContext } from "react"
-import ShopContext from "@/app/providers/mainProvider"
 import clsx from "clsx"
-import styles from './CartButtonStyles.module.scss'
 import Toast from "../Toast/Toast"
 
-const AddToCartButton = ({ item }) => {
+import styles from './CartButtonStyles.module.scss'
+import { AddToCartProps } from "./AddToCartButtonTypes"
+import ShopContext from "@/app/providers/mainProvider"
+
+const AddToCartButton = ({ item }: AddToCartProps) => {
   const { cartDisplayPrice, thisVariantId, addVariantToCart } = useContext(ShopContext)
   const ButtonClasses = clsx({
     [styles.cartButton]: true,

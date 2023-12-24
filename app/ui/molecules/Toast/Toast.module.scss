@@ -1,5 +1,8 @@
 .toast {
     background-color: var(--green);
+    display: flex;
+    gap: .5rem;
+    flex-direction: column;
     position: absolute;
     bottom: .7rem;
     right: 0;
