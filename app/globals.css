@@ -19,6 +19,12 @@
     --green: #66994d;
     --sinbad: #95D3CA;
     --fern: #4A793C;
+
+    --green-fade: linear-gradient(
+      5deg,
+      var(--green),
+      var(--fern)
+    );
     
 
   --foreground-rgb: 0, 0, 0;
@@ -76,6 +82,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
+  overflow-x: hidden;
   background: linear-gradient(
       to bottom,
       transparent,
@@ -163,7 +170,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .btn-green {
-  background-color: var(--green);
+  background:var(--green-fade);
   color: white;
 }
 

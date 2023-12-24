@@ -5,6 +5,7 @@ import { formatPrice } from '@/lib/utils/formatPrice'
 import styles from './cartPagePartials.module.scss'
 import clsx from 'clsx'
 import { CartDetailProps } from './CartDetailTypes'
+import Link from 'next/link'
 
 const CartDetails = ({ data }: CartDetailProps) => {
   const [checked, setChecked] = useState(false)
@@ -41,8 +42,9 @@ const CartDetails = ({ data }: CartDetailProps) => {
       </div>
       <div className={styles.checkoutContainer}>
         {error && <p>{error}</p>}
-        <a href={data.webUrl} onClick={evt => handleCheckout(evt)} className={CheckoutLinkClasses}>Go to checkout</a>
+        <a href={data.webUrl} onClick={evt => handleCheckout(evt)} className={`btn-green ${CheckoutLinkClasses}`} aria-disabled={!checked}>Go to checkout</a>
       </div>
+      <Link href="/shop" className={styles.shoppingLink}>Continue shopping</Link>
     </>
   )
 }

@@ -31,7 +31,8 @@ const CartListItems = ({ item, update, deleteItem }: CartItemProps) => {
         {value &&
           <>
             <span>Size: {value}</span>
-            <input type="number" value={item.quantity} ref={inputRef} readOnly />
+            <label htmlFor="num-in-cart">Amount in cart:</label>
+            <input id="num-in-cart" type="number" value={item.quantity} ref={inputRef} readOnly />
             <span>{formatPrice(amount, currencyCode)} ea.</span>
           </>
         }
@@ -40,15 +41,15 @@ const CartListItems = ({ item, update, deleteItem }: CartItemProps) => {
       <div className={styles.shopItemControls}>
         {value &&
           <>
-            <button onClick={() => handleClick('inc')} className="btn-green">
+            <button onClick={() => handleClick('inc')} className="btn-green" aria-label={`add another ${value} ${item.title} to cart`}>
               <FaPlus size={20} />
             </button>
-            <button onClick={() => handleClick('dec')} className="btn-green">
+            <button onClick={() => handleClick('dec')} className="btn-green" aria-label={`remove one ${value} ${item.title} from cart`}>
               <FaMinus size={20} />
             </button>
           </>
         }
-        <button className="btn-red" onClick={() => deleteItem(item.id)}>
+        <button className="btn-red" onClick={() => deleteItem(item.id)} aria-label={`remove all ${value} ${item.title} from cart`}>
           <FaTimesCircle size={30} />
         </button>
       </div>

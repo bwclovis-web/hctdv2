@@ -24,8 +24,10 @@ export default function RootLayout({
         <CartProvider>
           <TopBarNavigation />
           <Navigation />
-          {children}
-          <div id="modal-root"></div>
+          <main>
+            {children}
+            <div id="modal-root"></div>
+          </main>
         </CartProvider>
       </body>
     </html>

@@ -104,7 +104,6 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: .1rem;
-        background-color: var(--green);
         transition: opacity .2s ease-in;
     }
 
@@ -166,4 +165,11 @@
         }
     }
 
+}
+
+.shoppingLink {
+    text-align: center;
+    display: block;
+    margin-top: 2rem;
+    text-decoration: underline;
 }

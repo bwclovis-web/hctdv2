@@ -69,18 +69,19 @@
     }
 
     > div:nth-of-type(2) {
+        position: relative;
         display: flex;
         flex-direction: column;
-    }
 
-    > div:nth-of-type(2) {
-        position: relative;
+        label {
+            margin-top: .8rem;
+        }
 
         & span:last-of-type {
             position: absolute;
             bottom: .5rem;
             right: .5rem;
-            color: var(--chinese-violet);
+            color: var(--english-violet);
             font-size: 1.4rem;
             font-weight: 500;
         }
@@ -95,7 +96,7 @@
     }
 
     input {
-        margin: 1rem 0;
+        margin: .5rem 0;
         width: 30px;
         text-align: center;
         padding: .2rem 0;
