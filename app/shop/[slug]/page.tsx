@@ -25,8 +25,6 @@ const SingleProductPage = async ({ params }: DynamicPageType) => {
   const { variants } = product
   const variant = variants.edges
 
-  console.log(`%c product`, 'background: #0047ab; color: #fff; padding: 2px:', product.availableForSale)
-
   return <>
     <ProductHeroComponent heroImage={product} />
     <section className={`${styles.singlePage} main-container`}>
