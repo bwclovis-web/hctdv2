@@ -25,15 +25,22 @@ const SingleProductPage = async ({ params }: DynamicPageType) => {
   const { variants } = product
   const variant = variants.edges
 
+  console.log(`%c product`, 'background: #0047ab; color: #fff; padding: 2px:', product.availableForSale)
+
   return <>
     <ProductHeroComponent heroImage={product} />
     <section className={`${styles.singlePage} main-container`}>
       <div>
         <h1>{product.title}</h1>
-        <PackingSelectorComponent data={variant} />
-        <div className={styles.cartButton}>
-          <AddToCartButton />
-        </div>
+        {product.availableForSale ?
+          <>
+            <PackingSelectorComponent data={variant} />
+            <div className={styles.cartButton}>
+              <AddToCartButton />
+            </div>
+          </> :
+          <p>Sorry this item is currently out of stock.</p>
+        }
       </div>
     </section>
   </>

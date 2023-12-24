@@ -5,11 +5,9 @@
     align-items: center;
     position: relative;
     height: auto;
-    border-top: 2px solid var(--english-violet);
     border: 8px double var(--disco);
     overflow: hidden;
     transition: all 1s cubic-bezier(0.39, 0.575, 0.565, 1);
-    
 
     img {
         border-radius: inherit;
@@ -25,7 +23,6 @@
         transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
         top: 36%;
         background-color: rgba(255, 255,255, 0.6);
-        max-height: max-content;
         width: 100%;
         text-align: center;
         padding: 1rem 0;
@@ -60,6 +57,35 @@
             border-top: 2px solid var(--english-violet);
             background-color: rgba(0, 0,0, 0.6);
             color: var(--ice-cold);
+        }
+    }
+
+    &._disabled {
+        border: 8px double var(--silver);
+        pointer-events: none;
+
+        img {
+            filter: grayscale(80%);
+            opacity: .4;
+        }
+
+        div {
+            box-shadow: none;
+            border: 0;
+            background-color: rgba(0, 0,0, 0.6);
+            color: var(--cadet-gray);
+        }
+
+        span {
+            text-decoration: line-through;
+        }
+
+        &:focus {
+            border-radius: 50%;
+
+            img {
+                transform: none;
+            }
         }
     }
 }

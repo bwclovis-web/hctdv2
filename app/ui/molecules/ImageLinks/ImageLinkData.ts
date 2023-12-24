@@ -3,6 +3,7 @@ export type ImageLinkType = {
     data: {
         title: string
         handle: string
+        availableForSale: boolean
         priceRange?: {
             maxVariantPrice: {
                 amount: string

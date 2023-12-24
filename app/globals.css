@@ -82,6 +82,13 @@ a {
   text-decoration: none;
 }
 
+a,
+p,
+legend,
+summary {
+  font-size: 1.3rem;
+}
+
 h1, .h1,
 h2, .h2,
 h3, .h3 {
