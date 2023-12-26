@@ -8,10 +8,19 @@ import { PiArrowFatLinesDownFill } from "react-icons/pi"
 
 const NextCarousel = ({ images }) => {
   const [mainImage, setMainImage] = useState(images[0].node)
+  const [swapping, setSwapping] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  console.log(`%c mainImage`, 'background: #0047ab; color: #fff; padding: 2px:', mainImage)
-  const handleImageSwap = (url: string) => {
-    setMainImage(url)
+
+  const handleImageSwap = image => {
+    if (image.url === mainImage.url) {
+      return
+    }
+    setSwapping(true)
+
+    setTimeout(() => {
+      setMainImage(image)
+      setSwapping(false)
+    }, 200)
   }
   const handleScrollImage = () => {
     setScrolled(!scrolled)
@@ -19,14 +28,21 @@ const NextCarousel = ({ images }) => {
   const ListStyles = clsx({
     [styles.listScrolled]: scrolled
   })
+
+  const ImageStyles = clsx({
+    [styles.mainImage]: true,
+    [styles.mainImageSwapping]: swapping
+  })
+
   return (
     <div className={styles.imageSwapContainer}>
-      <figure>
+      <figure className={ImageStyles}>
         <Image
           src={mainImage.url}
           alt={''}
           width={500}
           height={500}
+
         />
         <figcaption>{mainImage.altText}</figcaption>
       </figure>
