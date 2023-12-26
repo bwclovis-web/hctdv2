@@ -7,6 +7,9 @@ import ProductHeroComponent from "@/app/ui/molecules/Hero/ProductHero"
 import PackingSelectorComponent from "@/app/ui/ProductPage/PackingSelector/PackingSelector"
 
 import styles from './SingleProductPage.module.scss'
+import Image from "next/image"
+import { Carousel } from 'react-responsive-carousel'
+import NextCarousel from "@/app/ui/molecules/Carousel/NextCarousel"
 
 export const generateStaticParams = async () => {
   const allProducts = await getAllProductsQuery()
@@ -24,8 +27,9 @@ export const generateMetadata = async (params: { params: { slug: string } }): Pr
 
 const SingleProductPage = async ({ params }: DynamicPageType) => {
   const product = await getSingleProductPageProps(params.slug)
-  const { variants } = product
+  const { variants, images, featuredImage } = product
   const variant = variants.edges
+
 
   return <>
     <ProductHeroComponent heroImage={product} />
@@ -41,6 +45,9 @@ const SingleProductPage = async ({ params }: DynamicPageType) => {
           </> :
           <p>Sorry this item is currently out of stock.</p>
         }
+      </div>
+      <div className={styles.singlePageImage}>
+        <NextCarousel images={images.edges} />
       </div>
     </section>
   </>

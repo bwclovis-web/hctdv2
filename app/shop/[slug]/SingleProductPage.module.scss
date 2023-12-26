@@ -1,5 +1,16 @@
 .singlePage {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:6rem;
+
+    > div {
+        align-self: flex-start;
+    }
+}
+
+.singlePageImage {
+    width: 52%;
 }
 
 .cartButton {

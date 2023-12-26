@@ -12,5 +12,6 @@ export const chicle = Chicle({
 
 export const outfit = Outfit({
   subsets: ['latin'],
+  variable: '--outfit',
 })
   

@@ -25,6 +25,12 @@
       var(--green),
       var(--fern)
     );
+
+    --default-fade: linear-gradient(
+      15deg,
+      var(--chinese-violet),
+      var(--english-violet)
+    );
     
 
   --foreground-rgb: 0, 0, 0;
@@ -167,6 +173,45 @@ input[type="number"] {
 input[type="number"]::-webkit-inner-spin-button, 
 input[type="number"]::-webkit-outer-spin-button { 
   -webkit-appearance: none;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.btn {
+  font-size: 1.2rem;
+  padding: 1rem;
+  font-weight: 700;
+  font-family: var(--outfit);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: .13rem;
+  border-radius: var(--radius);
+  text-align: center;
+  border: 3px solid;
+}
+
+.btn-disabled {
+  background-color: var(--cadet-gray);
+  pointer-events: none;
+  cursor: default;
+  opacity: .6;
+}
+
+.btn-default {
+  background:var(--default-fade);
+  color: white;
+}
+
+.btn-ghost {
+  color: var(--disco);
 }
 
 .btn-green {

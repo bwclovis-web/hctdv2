@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import Navigation from './ui/molecules/Navigation/Navigation'
-import { albert } from './ui/fonts'
+import { albert, outfit } from './ui/fonts'
 import TopBarNavigation from './ui/molecules/Navigation/TopBarNavigation'
 import { CartProvider } from './providers/mainProvider'
 import './globals.css'
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 export const metadata: Metadata = {
   title: {
@@ -24,7 +25,7 @@ export default function RootLayout({
         <CartProvider>
           <TopBarNavigation />
           <Navigation />
-          <main>
+          <main className={outfit.variable}>
             {children}
             <div id="modal-root"></div>
           </main>
