@@ -1,0 +1,17 @@
+.tagList {
+    margin-top: .6rem;
+     li {
+        display: inline-block;
+        padding-right: 1rem;
+        
+        a {
+            font-size: .9rem;
+            background-color: var(--disco);
+            color: var(--ice-cold);
+            padding: .4rem;
+            text-transform: capitalize;
+            font-weight: 600;
+            letter-spacing: .12rem;
+        }
+     }
+}

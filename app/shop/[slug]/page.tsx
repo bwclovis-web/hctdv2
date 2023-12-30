@@ -4,12 +4,13 @@ import { DynamicPageType } from "@/lib/types"
 
 import AddToCartButton from "@/app/ui/molecules/AddToCartButton/AddToCartButton"
 import ProductHeroComponent from "@/app/ui/molecules/Hero/ProductHero"
-import PackingSelectorComponent from "@/app/ui/ProductPage/PackingSelector/PackingSelector"
+import PackingSelectorComponent from "@/app/shop/[slug]/ui/PackingSelector/PackingSelector"
 
 import styles from './SingleProductPage.module.scss'
 import Image from "next/image"
 import { Carousel } from 'react-responsive-carousel'
 import NextCarousel from "@/app/ui/molecules/Carousel/NextCarousel"
+import TagList from "./ui/TagList/TagList"
 
 export const generateStaticParams = async () => {
   const allProducts = await getAllProductsQuery()
@@ -27,9 +28,10 @@ export const generateMetadata = async (params: { params: { slug: string } }): Pr
 
 const SingleProductPage = async ({ params }: DynamicPageType) => {
   const product = await getSingleProductPageProps(params.slug)
-  const { variants, images, featuredImage } = product
+  const { variants, images, tags } = product
   const variant = variants.edges
 
+  console.log(`%c tags`, 'background: #0047ab; color: #fff; padding: 2px:', tags)
 
   return <>
     <ProductHeroComponent heroImage={product} />
@@ -48,7 +50,9 @@ const SingleProductPage = async ({ params }: DynamicPageType) => {
       </div>
       <div className={styles.singlePageImage}>
         <NextCarousel images={images.edges} />
+        <TagList tags={tags} />
       </div>
+
     </section>
   </>
 }

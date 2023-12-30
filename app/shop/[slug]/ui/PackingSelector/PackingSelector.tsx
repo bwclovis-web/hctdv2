@@ -1,12 +1,12 @@
 "use client"
 
 import { ChangeEvent, Key, SetStateAction, useContext, useEffect, useState } from "react"
-import RadioButtons from "../../Atoms/RadioButtons"
 import styles from './PackingSelector.module.scss'
-import funkyStyles from '../../Atoms/RadioButtons.module.scss'
+import funkyStyles from '@/app/ui/Atoms/RadioButtons.module.scss'
 import ShopContext from "@/app/providers/mainProvider"
 import { getPriceByVariantId } from "@/lib/utils/formatPrice"
 import { PackingSelectorType } from "./PackingSelectorData"
+import RadioButtons from "@/app/ui/Atoms/RadioButtons"
 
 const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
   const [packingSelected, setPackingSelected] = useState('')
