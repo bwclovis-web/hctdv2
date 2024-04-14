@@ -54,10 +54,10 @@ const PackingSelectorComponent = ({ data }: PackingSelectorType) => {
         <summary>Choose your item size</summary>
         <div>
           {packingSelected === 'bags' &&
-            bags.map((item: { node: any }, i: Key | null | undefined) => <RadioButtons data={item.node} key={i} changeAction={handleSizeSelect} />)
+            bags.map((item: { node: any }, i: Key | null | undefined) => <RadioButtons data={item.node} key={i} changeAction={handleSizeSelect} aria-disabled={item.node.availableForSale} />)
           }
           {packingSelected === 'jars' &&
-            jars.map((item: { node: any }, i: Key | null | undefined) => <RadioButtons data={item.node} key={i} changeAction={handleSizeSelect} />)
+            jars.map((item: { node: any }, i: Key | null | undefined) => <RadioButtons data={item.node} key={i} changeAction={handleSizeSelect} aria-disabled={item.node.availableForSale} />)
           }
           {
             packingSelected === '' && <p>Oops, looks like you forgot to pick an option. Please select from the list above.</p>

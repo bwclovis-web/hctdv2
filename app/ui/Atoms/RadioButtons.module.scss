@@ -30,5 +30,23 @@
                 }
             }
         }
+
+        &[aria-disabled="true"] {
+            + label span {
+                background-color: var(--cadet-gray);
+                color: var(--ice-cold);
+                opacity: .6;
+                pointer-events: none;
+            }
+
+            &:hover {
+                + label span {
+                    background-color: var(--cadet-gray);
+                    color: var(--ice-cold);
+                    opacity: .6;
+                    pointer-events: none;
+                }
+            }
+        }
     }
 }

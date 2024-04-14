@@ -6,16 +6,22 @@ import { outfit } from "../../fonts"
 
 const HeroComponent = ({ heroImage }: HeroImageType) => (
   <div className={styles.hero}>
-    <Image
-      alt={''}
-      src={heroImage.heroImage.asset.url}
-      fill
-      sizes="100vw"
-      placeholder="blur"
-      priority
-      className={styles.hero}
-      blurDataURL={heroImage.heroImage.asset.metadata.lqip}
-    />
+    <div className={styles.heroImage}>
+      <Image
+        alt={''}
+        src={heroImage.heroImage.asset.url}
+        fill
+        quality={100}
+        sizes="(min-width: 1080px) 70vw, 100vw"
+        placeholder="blur"
+        priority
+        style={{
+          objectFit: 'cover', // cover, contain, none
+        }}
+
+        blurDataURL={heroImage.heroImage.asset.metadata.lqip}
+      />
+    </div>
     <div className={`${styles.content}  main-container`}>
       <h1 className={outfit.className} >{heroImage.heading}</h1>
       <PortableText value={heroImage.description} />

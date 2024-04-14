@@ -7,22 +7,21 @@ import ProductHeroComponent from "@/app/ui/molecules/Hero/ProductHero"
 import PackingSelectorComponent from "@/app/shop/[slug]/ui/PackingSelector/PackingSelector"
 
 import styles from './SingleProductPage.module.scss'
-import Image from "next/image"
-import { Carousel } from 'react-responsive-carousel'
 import NextCarousel from "@/app/ui/molecules/Carousel/NextCarousel"
 import TagList from "./ui/TagList/TagList"
 
 export const generateStaticParams = async () => {
   const allProducts = await getAllProductsQuery()
+
   return allProducts.map((item: { node: { handle: any } }) => ({
-    slug: item.node.handle
+    slug: item.node?.handle
   }))
 }
 
 export const generateMetadata = async (params: { params: { slug: string } }): Promise<Metadata> => {
   const product = await getSingleProductPageProps(params.params.slug)
   return {
-    title: product.title
+    title: `${product.title} | Shop`
   }
 }
 
@@ -30,8 +29,6 @@ const SingleProductPage = async ({ params }: DynamicPageType) => {
   const product = await getSingleProductPageProps(params.slug)
   const { variants, images, tags } = product
   const variant = variants.edges
-
-  console.log(`%c tags`, 'background: #0047ab; color: #fff; padding: 2px:', tags)
 
   return <>
     <ProductHeroComponent heroImage={product} />

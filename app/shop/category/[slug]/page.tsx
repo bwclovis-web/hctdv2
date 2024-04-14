@@ -19,7 +19,7 @@ const getCategory = async (params: { slug: string }) => {
 export const generateMetadata = async (params: { params: { slug: string } }): Promise<Metadata> => {
   const category = await getCategory(params.params)
   return {
-    title: category.title
+    title: `${category.title} | Shop`
   }
 }
 const SingleCategoryPage = async ({ params }: any) => {

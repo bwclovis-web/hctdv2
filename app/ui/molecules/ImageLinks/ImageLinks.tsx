@@ -19,21 +19,19 @@ const ImageLinkComponent = ({ data, type }: ImageLinkType) => {
   })
 
   return (
-    <li>
-      <Link href={`${type}/${data.handle}`} className={ImageClassNames}>
-        <Image
-          width={240}
-          alt=""
-          height={240}
-          src={data?.image?.url ? data.image.url : data.featuredImage.url}
-        />
-        <div>
-          <span>{data.title}</span>
-          {data.priceRange && formatPriceRange(data.priceRange)}
-          {!data.availableForSale && <span className="sr-only">currently out of stock</span>}
-        </div>
-      </Link>
-    </li>
+    <Link href={`${type}/${data.handle}`} className={ImageClassNames}>
+      <Image
+        width={240}
+        alt=""
+        height={240}
+        src={data?.image?.url ? data.image.url : data.featuredImage.url}
+      />
+      <div>
+        <span>{data.title}</span>
+        {data.priceRange && formatPriceRange(data.priceRange)}
+        {!data.availableForSale && <span className="sr-only">currently out of stock</span>}
+      </div>
+    </Link>
   )
 }
 

@@ -61,7 +61,7 @@ export const singleProductPageQuery = (handle: any) => `{
 export const allProductsQuery = `{
   products(first: 250) {
     edges {
-      node {
+      product:node {
         title
         handle
         availableForSale

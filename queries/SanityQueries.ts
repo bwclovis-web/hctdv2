@@ -9,7 +9,7 @@ export const navigationQuery = `
 `
 
 export const sanityHomepageQuery = `{
-  "pageContent": *[_type == "page" && pageTitle== 'home']{
+  "pageContent": *[_type == "page" && pageTitle== 'home page']{
     pageHero {
       heading,
       eyebrow,

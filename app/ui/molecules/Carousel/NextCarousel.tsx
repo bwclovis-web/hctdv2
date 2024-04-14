@@ -6,12 +6,22 @@ import { useState } from 'react'
 import clsx from 'clsx'
 import { PiArrowFatLinesDownFill } from "react-icons/pi"
 
-const NextCarousel = ({ images }) => {
+type NextCarouselType = {
+  images: {
+    node: {
+      url: string
+      altText: string | ''
+      id: string
+    }
+
+  }[]
+}
+const NextCarousel = ({ images }: NextCarouselType) => {
   const [mainImage, setMainImage] = useState(images[0].node)
   const [swapping, setSwapping] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
-  const handleImageSwap = image => {
+  const handleImageSwap = (image: { url: string; altText: string, id: string }) => {
     if (image.url === mainImage.url) {
       return
     }
