@@ -1,13 +1,15 @@
-import Image from "next/legacy/image"
+import Image from "next/image"
 import Link from "next/link"
+import styles from './featuredSubmissions.module.scss'
 import { slugify } from "@/lib/utils/generalUtils"
 
 const FeaturedSubmission = ({ item }) => (
-  <section>
-    <h3>{item.title}</h3>
+  <div className={styles.wrapper}>
+    <h3 className={`${styles.heading} highlight`}>{item.title}</h3>
     <Image
       alt={''}
       src={item.submissionImage.asset.url}
+      className={styles.polaroid}
       width={400}
       height={400}
       placeholder="blur"
@@ -16,12 +18,12 @@ const FeaturedSubmission = ({ item }) => (
     <div>
       <p>Happy Cat colors used:</p>
       {item.colors.length &&
-        <ul>
+        <ul className={styles.colorsList}>
           {item?.colors?.map((color: string) => {
             const display_color = color === 'jars' ? "Schnozzberry" : color
             return (
-              <li key={color}>
-                <Link href={`/shop/${slugify(color)}`} className="tag-link block">{display_color}</Link>
+              <li key={color} className={styles.colorLinks}>
+                <Link href={`/shop/${slugify(color)}`} className="flip-link">{display_color}</Link>
               </li>
             )
           })}
@@ -35,7 +37,7 @@ const FeaturedSubmission = ({ item }) => (
       </>
       }
     </div>
-  </section>
+  </div>
 )
 
 

@@ -1,0 +1,26 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    margin-bottom: 1.2rem;
+}
+
+.polaroid {
+    transform: rotate(2deg);
+    margin: 1rem auto;
+    border: 16px solid white;
+    box-shadow: 2px 2px 10px rgba(0,0,0, .3);
+}
+
+.colorsList {
+    border: 1px solid silver;
+    margin: .6rem 0;
+    padding: .4rem;
+}
+
+.colorLinks {
+    display: inline-block;
+    margin: .4rem 0;
+}

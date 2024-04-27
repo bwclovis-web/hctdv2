@@ -228,6 +228,7 @@ ul {
   position: relative;
   padding: .54rem;
   text-decoration: underline;
+  text-transform: capitalize;
   transition: color .2s ease-in-out;
 
   &:hover,
