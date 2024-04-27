@@ -1,0 +1,31 @@
+.mediaList{
+    display: flex;
+    margin-top: .5rem;
+    gap:.2rem
+}
+
+.mediaLink {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    padding: .6rem;
+    border-radius: 1rem;
+    border: 2px solid var(--ice-cold);
+    transition: all .3s ease-in-out;
+    
+    &:hover {
+        background-color: var(--blush);
+        border-color: var(--disco);
+        transition: all .1s ease-in-out;
+
+        span {
+            color: var(--ice-cold)
+        }
+
+        svg {
+            fill: var(--ice-cold);
+        }
+    }
+}

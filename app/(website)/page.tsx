@@ -16,8 +16,8 @@ const Home = async () => {
 
   return (
     <div>
-      <HeroComponent heroImage={pageContent[0].pageHero} />
-      <CategoryList />
+      <HeroComponent heroImage={pageContent.pageHero} />
+      <CategoryList data={pageProps.collections} />
       <DyeShopBanner />
       <section className={`${styles.addedStyles}`}>
         <div className="main-container">
@@ -31,9 +31,9 @@ const Home = async () => {
             to the store under {edges[0].node.collections?.edges[0].node.handle}!
           </p>
         </div>
-
       </section>
-      <ArtistBanner artist={featuredArtist[0]} />
+      <CategoryList data={pageProps.products} heading="recently updated" />
+      <ArtistBanner artist={featuredArtist} />
     </div>
   )
 }

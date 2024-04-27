@@ -255,6 +255,13 @@ ul {
   }
 }
 
+.highlight {
+  background-color: var(--blush);
+  color: var(--ice-cold);
+  padding:.4rem;
+  border-radius: .2rem;
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

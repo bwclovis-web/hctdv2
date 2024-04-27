@@ -1,13 +1,12 @@
-import { getHomePageProps } from '@/lib/shopifyGql'
 import styles from './categoryList.module.scss'
 import ImageLinkComponent from '../ImageLinks/ImageLinks'
 
-const CategoryList = async () => {
-  const pageProps = await getHomePageProps()
-  const { edges } = pageProps.collections
+const CategoryList = async ({ data, heading }: any) => {
+  const { edges } = data
 
   return (
-    <section className={styles.cat_wrapper}>
+    <section className={`${styles.cat_wrapper}`}>
+      {heading ? <h2 className={`${styles.heading} main-container`}>{heading}</h2> : null}
       <ul className={`${styles.catList}`}>
         {edges.map((item: { node: any }) => {
           const { node } = item
