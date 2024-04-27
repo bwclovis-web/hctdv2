@@ -113,7 +113,6 @@ h1, .h1,
 h2, .h2,
 h3, .h3 {
   font-weight: 800;
-  color: var(--disco);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
   font-family: var(--fjalla);
 }
@@ -212,7 +211,7 @@ ul {
 }
 
 .btn-ghost {
-  color: var(--disco);
+  color: var(--ice-cold);
 }
 
 .btn-green {

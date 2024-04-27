@@ -6,12 +6,14 @@ import DyeShopBanner from '../ui/container/DyeShopBanner/DyeShopBanner'
 import Link from 'next/link'
 import { getHomePageProps } from '@/lib/shopifyGql'
 import styles from './pageStyles.module.scss'
+import ArtistBanner from '../ui/container/ArtistBanner/ArtistBanner'
 
 const Home = async () => {
   const contentProps = await sanityClient.fetch(sanityHomepageQuery)
   const pageProps = await getHomePageProps()
   const { pageContent, featuredArtist } = contentProps
   const { edges } = pageProps?.products
+
   return (
     <div>
       <HeroComponent heroImage={pageContent[0].pageHero} />
@@ -29,8 +31,9 @@ const Home = async () => {
             to the store under {edges[0].node.collections?.edges[0].node.handle}!
           </p>
         </div>
-        {/* <HeroComponent {...featuredArtist.pageHero} config="mini" pos="start" link={{ "href": '/featured-artist', "text": "current featured artist" }} /> */}
+
       </section>
+      <ArtistBanner artist={featuredArtist[0]} />
     </div>
   )
 }

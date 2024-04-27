@@ -22,6 +22,21 @@ export const sanityHomepageQuery = `{
       }
     }
   },
+  "featuredArtist": *[_type == "featuredArtist" && isFeatured == true]  {
+    slug {
+      current
+    },
+    pageHero {
+      heading,
+      eyebrow,
+      heroImage {
+        asset -> {
+          ...,
+          metadata
+        }
+      }
+    }
+  }
 }
 `
 export const sanityAboutPageQuery = `{
