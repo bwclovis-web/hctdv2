@@ -4,7 +4,7 @@ import { DynamicPageType } from "@/lib/types"
 
 import AddToCartButton from "@/app/ui/molecules/AddToCartButton/AddToCartButton"
 import ProductHeroComponent from "@/app/ui/molecules/Hero/ProductHero"
-import PackingSelectorComponent from "@/app/shop/[slug]/ui/PackingSelector/PackingSelector"
+import PackingSelectorComponent from "@/app/(website)/shop/[slug]/ui/PackingSelector/PackingSelector"
 
 import styles from './SingleProductPage.module.scss'
 import NextCarousel from "@/app/ui/molecules/Carousel/NextCarousel"

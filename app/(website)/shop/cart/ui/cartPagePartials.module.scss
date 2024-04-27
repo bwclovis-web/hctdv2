@@ -133,38 +133,6 @@
         margin-bottom: 1.2rem;
     }
 
-    a {
-        font-weight: 600;
-        position: relative;
-        padding: 1rem;
-        text-decoration: underline;
-        transition: color .2s ease-in-out;
-
-        &:hover,
-        &:focus {
-            text-decoration: none;
-            color: var(--ice-cold);
-        }
-
-        &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            border-radius: var(--radius);
-            top: 100%;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: var(--english-violet);
-            z-index: -1;
-            transition: all 0.1s cubic-bezier(0.000, 0.590, 1.000, 0.260);
-        }
-
-        &:hover:after {
-            top: 0;
-        }
-    }
-
 }
 
 .shoppingLink {

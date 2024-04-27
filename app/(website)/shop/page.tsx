@@ -1,5 +1,5 @@
 import { getShopPageProps } from "@/lib/shopifyGql"
-import ProductRow from "../ui/molecules/ProductRow/ProductRow"
+import ProductRow from "../../ui/molecules/ProductRow/ProductRow"
 import { SingleCollectionType } from "@/lib/types"
 import { Metadata } from "next"
 
