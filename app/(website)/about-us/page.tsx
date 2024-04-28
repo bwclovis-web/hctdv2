@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 }
 
 const AboutUs = async () => {
-  const contentProps = await sanityClient.fetch(sanityAboutPageQuery)
+  const contentProps = await sanityClient.fetch(sanityAboutPageQuery, { next: { revalidate: 3600 } })
   const { pageContent } = contentProps
   return (
     <>
       <p>About page</p>
-      <HeroComponent heroImage={pageContent[0].pageHero} />
+      <HeroComponent heroImage={pageContent.pageHero} />
     </>
   )
 }

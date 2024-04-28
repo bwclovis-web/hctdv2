@@ -40,7 +40,24 @@ export const sanityHomepageQuery = `{
 }
 `
 export const sanityAboutPageQuery = `{
-  "pageContent": *[_type == "page" && pageTitle== 'about']{
+  "pageContent": *[_type == "page" && pageTitle== 'about'][0]{
+    pageHero {
+      heading,
+      eyebrow,
+      description,
+      heroImage {
+        asset-> {
+          url,
+          metadata
+        }
+      }
+    }
+  },
+}
+`
+export const sanityContactPageQuery = `{
+  "pageContent": *[_type == "page" && pageTitle== 'contact'][0]{
+    faqs,
     pageHero {
       heading,
       eyebrow,

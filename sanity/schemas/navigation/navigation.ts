@@ -1,4 +1,4 @@
-//File name: navigation.js
+//File name: navigation.ts
 //File location: schemas/documents
 
 import { GrNavigate } from "react-icons/gr"

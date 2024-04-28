@@ -1,3 +1,6 @@
+//File name: page.ts
+//File location: schemas/documents
+
 const page =  {
   name: 'page',
   title: 'Page',
@@ -24,6 +27,12 @@ const page =  {
     name: 'heading',
     title: 'First Page Heading',
     type: 'string'
+  }, 
+  {
+    name: 'faqs',
+    title: 'Frequently Asked Questions',
+    type: 'array',
+    of: [{ type: 'faq' }]
   }],
     
   preview: {

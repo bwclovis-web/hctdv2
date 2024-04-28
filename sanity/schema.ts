@@ -12,6 +12,7 @@ import socialMediaLinks from './schemas/socialMedia'
 import socialMediaTypes from './schemas/socialMediaTypes'
 import configuredLink from './schemas/configuredLink'
 import dyeSchema from './schemas/dyeSchema'
+import faqSchema from './schemas/faq'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [ siteConfigSchema, 
@@ -26,5 +27,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     socialMediaLinks,
     socialMediaTypes,
     configuredLink,
-    dyeSchema],
+    dyeSchema,
+    faqSchema],
 }
