@@ -8,3 +8,39 @@
     border-bottom: 4px solid;
     border-color: var(--chinese-violet);
 }
+
+.trigger {
+    cursor: pointer;
+    margin: 1rem auto;
+}
+
+.info {
+    text-align: left;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.directionsWrap {
+    display: flex;
+    margin: 1.4rem 0;
+    gap: 2rem;
+    justify-content: space-between;
+
+    & > div {
+        width: 45%;
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        li {
+            padding: .2rem 0;
+        }
+    }
+}
+
+.controls {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: space-between;
+}

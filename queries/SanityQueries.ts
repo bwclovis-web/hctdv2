@@ -65,6 +65,15 @@ export const previousFeaturedArtistQuery = `
   isFeatured,
   bio,
   artistEntry | order(_createdAt desc),
+  'currentEntry': artistEntry[0] {
+    ...,
+    submissionImage {
+      asset -> {
+        ...,
+        metadata
+      }
+    }
+  },
   socialMedia,
   firstName,
   lastName,
