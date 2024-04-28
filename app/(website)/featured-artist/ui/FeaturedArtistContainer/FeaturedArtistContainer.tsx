@@ -1,22 +1,20 @@
-import BlockContent from "@sanity/block-content-to-react"
-// import FeaturedSubmission from 'components/molecules/FeaturedSubmissions/FeaturedSubmissions'
-// import SocialMediaBlock from 'components/container/SocialMediaBlock/SocialMediaBlock'
+// import BlockContent from "@sanity/block-content-to-react"
 import HeroComponent from "@/app/ui/molecules/Hero/Hero"
 import styles from './featuredArtist.module.scss'
 import { formatFirstName } from "@/lib/utils/generalUtils"
 import FeaturedSubmission from "../FeaturedSubmissions/FeaturedSubmissions"
 import SocialMediaBlock from "../SocialMedia/SocialMedia"
 
-const FeaturedArtistContainer = ({ content }) => (
+const FeaturedArtistContainer = ({ content }: any) => (
   <>
     <HeroComponent heroImage={content.pageHero} />
     <div className={`${styles.container} main-container`}>
       <section>
         <div className={styles.bioHolder}>
           <h2 className="highlight">About {content.pageTitle}</h2>
-          <div>
+          {/* <div>
             <BlockContent blocks={content.bio} />
-          </div>
+          </div> */}
           {
             content?.websiteLink?.title && content?.websiteLink?.url &&
             <div className={styles.linkWrap}>

@@ -1,9 +1,10 @@
 import sanityClient from "@/lib/sanityClient"
 import { navigationQuery } from "@/queries/SanityQueries"
 import Link from "next/link"
-import { Key } from "react"
 import styles from './navigation.module.scss'
-import { chicle } from "../../fonts"
+import clsx from "clsx"
+import MainLogo from "../../Atoms/MainLogo/MainLogo"
+
 
 const Navigation = async () => {
   const data = await sanityClient.fetch(navigationQuery, { next: { revalidate: 3600 } })
@@ -11,12 +12,9 @@ const Navigation = async () => {
 
   return (
     <nav className={styles.navigation}>
-      <Link href="/" className={`${chicle.className} ${styles.homeLink}`}>
-        <span>Happy Cat</span>
-        <span>Tie Dye</span>
-      </Link>
+      <MainLogo />
       <ul className={styles.mainNav}>
-        {navigation.map((item: { slug: { current: string }; _id: Key; pageTitle: string; }) => (
+        {navigation.map((item: { slug: { current: string }; _id: string; pageTitle: string; }) => (
           <li key={item._id}>
             <Link href={`/${item.slug.current}`}>
               {item.pageTitle}

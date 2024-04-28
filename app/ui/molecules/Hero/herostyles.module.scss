@@ -2,11 +2,11 @@
     height: 80vh;
     
     @media (min-width: 1024px) {
-        height: 100vh;
+        height: 90vh;
     }
 
      + section {
-        margin-top: 10vh;
+        margin-top: 5vh;
 
         @media (min-width: 1024px) {
             margin-top: 0;
@@ -22,7 +22,7 @@
         border-top-left-radius: var(--border-radius);
         border-top-right-radius: var(--border-radius);
         width: 100%;
-        padding: 2rem;
+        padding: 1rem;
         height: max-content;
         left: 0;
         right: 0;

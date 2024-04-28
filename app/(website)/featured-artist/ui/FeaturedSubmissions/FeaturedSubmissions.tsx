@@ -3,7 +3,7 @@ import Link from "next/link"
 import styles from './featuredSubmissions.module.scss'
 import { slugify } from "@/lib/utils/generalUtils"
 
-const FeaturedSubmission = ({ item }) => (
+const FeaturedSubmission = ({ item }: any) => (
   <div className={styles.wrapper}>
     <h3 className={`${styles.heading} highlight`}>{item.title}</h3>
     <Image

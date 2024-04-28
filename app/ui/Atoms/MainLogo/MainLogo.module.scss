@@ -1,0 +1,24 @@
+.homeLink {
+    display: flex;
+    flex-direction: column;
+    font-size: 5rem;
+    line-height: 1.1;
+    color: white;
+    text-shadow: 2px 4px 4px var( --english-violet);
+    max-width: max-content;
+    margin: 0 auto;
+
+    @media (min-width: 1024px) {
+        font-size: 10rem;
+    }
+}
+
+.shopLink {
+    color: transparent;
+    background: url('../../../../public/images/Banner-2.jpg') 0 0 / cover no-repeat;
+    background-clip: text;
+    text-shadow: none;
+    -webkit-text-fill-color: transparent;
+    color: var(--disco);
+    -webkit-text-stroke: 2px var(--blush);
+}

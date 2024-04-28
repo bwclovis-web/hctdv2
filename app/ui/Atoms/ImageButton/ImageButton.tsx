@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import styles from './imageButton.module.scss'
-const ImageButton = ({ linkData }) => {
+const ImageButton = ({ linkData }: any) => {
   const { heroImage } = linkData.pageHero
 
   return (
